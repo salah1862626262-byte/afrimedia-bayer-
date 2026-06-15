@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Afrimedia Bayer | Premium Growth Agency</title>
+    <title>Afrimedia Bayer | Performance Marketing & Production Premium</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome Icons -->
@@ -11,12 +11,12 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght=300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     
     <style>
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #0B0F19;
+            background-color: #060913;
         }
         .gradient-text {
             background: linear-gradient(135deg, #FF6B00 0%, #FFA800 100%);
@@ -27,164 +27,129 @@
             background: linear-gradient(135deg, #FF6B00 0%, #FF8A00 100%);
         }
         .card-blur {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        [lang="ar"] {
+            direction: rtl;
         }
     </style>
 </head>
 <body class="text-gray-200 antialiased selection:bg-orange-500 selection:text-white">
 
     <!-- Header / Navbar -->
-    <header class="fixed top-0 left-0 w-full z-50 card-blur border-b border-gray-800">
+    <header class="fixed top-0 left-0 w-full z-50 card-blur border-b border-gray-800/80">
         <div class="max-w-7xl px-6 py-4 mx-auto flex items-center justify-between">
-            <div class="text-2xl font-extrabold tracking-wider text-white">
+            <div class="text-xl md:text-2xl font-extrabold tracking-wider text-white">
                 AFRIMEDIA <span class="text-orange-500">BAYER</span>
             </div>
-            <nav class="hidden md:flex space-x-8 text-sm font-semibold tracking-wide">
-                <a href="#services" class="hover:text-orange-500 transition">Services</a>
-                <a href="#system" class="hover:text-orange-500 transition">The Ecosystem</a>
-                <a href="#why-us" class="hover:text-orange-500 transition">Why Us</a>
-            </nav>
-            <div>
-                <a href="https://wa.me/212614884963" target="_blank" class="btn-gradient px-5 py-2.5 rounded-full text-sm font-bold text-black hover:opacity-90 transition shadow-lg shadow-orange-500/20">
-                    Let's Talk Business
+            
+            <div class="flex items-center space-x-4 md:space-x-8">
+                <!-- Language Selector -->
+                <div class="relative inline-block text-left z-50">
+                    <select id="langSelect" onchange="changeLanguage(this.value)" class="bg-gray-900/90 text-xs font-bold text-gray-300 border border-gray-700 rounded-full px-3 py-1.5 focus:outline-none focus:border-orange-500 cursor-pointer">
+                        <option value="fr">🇫🇷 FR</option>
+                        <option value="en">🇺🇸 EN</option>
+                        <option value="ar">🇲🇦 AR</option>
+                    </select>
+                </div>
+                
+                <a href="https://wa.me/212614884963" target="_blank" class="btn-gradient px-4 py-2 md:px-5 md:py-2.5 rounded-full text-xs font-bold text-black hover:opacity-90 transition shadow-lg shadow-orange-500/20">
+                    <span data-translate="nav-cta">Contact Pro</span>
                 </a>
             </div>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="relative pt-40 pb-24 px-6 overflow-hidden">
-        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-orange-500/10 blur-[120px] rounded-full pointer-events-none"></div>
+    <section class="relative pt-44 pb-24 px-6 overflow-hidden">
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-orange-500/10 blur-[140px] rounded-full pointer-events-none"></div>
         
         <div class="max-w-5xl mx-auto text-center relative z-10">
-            <span class="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-widest text-orange-400 uppercase rounded-full bg-orange-500/10 border border-orange-500/20">
-                Next-Gen Performance Marketing By Afrimedia Bayer
+            <span class="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-widest text-orange-400 uppercase rounded-full bg-orange-500/10 border border-orange-500/20" data-translate="hero-badge">
+                MEMBRE DE METAMATCH & PERFORMANCE MARKETING
             </span>
             <h1 class="text-4xl md:text-7xl font-extrabold text-white tracking-tight leading-tight mb-8">
-                We Scale High-End Retailers & Brands Into <span class="gradient-text">Local Giants.</span>
+                <span data-translate="hero-title1">Nous Propulsons les Showrooms & Marques de Luxe en</span> <span class="gradient-text" data-translate="hero-title2">Géants Locaux.</span>
             </h1>
-            <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-10 leading-relaxed">
-                Stop wasting budget on "likes" and ghost agencies. At <strong>Afrimedia Bayer</strong>, we build customer acquisition machines combining high-end content creation with bulletproof paid ads.
+            <p class="text-base md:text-xl text-gray-400 max-w-3xl mx-auto mb-10 leading-relaxed" data-translate="hero-desc">
+                Rentabilisez chaque dirham investi. Afrimedia Bayer déploie des infrastructures d'acquisition sur-mesure combinant production visuelle ultra-premium et campagnes publicitaires de haute précision.
             </p>
             <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
                 <a href="https://wa.me/212614884963" target="_blank" class="w-full sm:w-auto btn-gradient px-8 py-4 rounded-xl text-md font-bold text-black hover:scale-[1.02] transition shadow-xl shadow-orange-500/20 text-center">
-                    <i class="fa-brands fa-whatsapp mr-2 text-lg"></i> Book a 10-Min Strategy Call
-                </a>
-                <a href="#services" class="w-full sm:w-auto px-8 py-4 rounded-xl text-md font-bold text-white card-blur hover:bg-white/5 transition text-center">
-                    Explore Our Offer
+                    <i class="fa-brands fa-whatsapp mr-2 text-lg"></i> <span data-translate="hero-btn1">Réserver un Call Stratégique</span>
                 </a>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-24 px-6 border-t border-gray-900 bg-[#090D16]">
+    <section id="services" class="py-24 px-6 border-t border-gray-900 bg-[#04070F]">
         <div class="max-w-7xl mx-auto">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-4">Our Core <span class="text-orange-500">Growth Offers</span></h2>
-                <p class="text-gray-400">Everything you need to capture premium, high-intent buyers in your local market.</p>
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-4"><span data-translate="services-title1">Notre Écosystème de</span> <span class="text-orange-500" data-translate="services-title2">Croissance</span></h2>
+                <p class="text-gray-400 text-sm md:text-base" data-translate="services-subtitle">Une structure d'élite conçue exclusivement pour dominer votre marché local.</p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Service 1 -->
-                <div class="card-blur p-8 rounded-2xl relative overflow-hidden group hover:border-orange-500/30 transition duration-300">
-                    <div class="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-500 text-xl font-bold mb-6 group-hover:bg-orange-500 group-hover:text-black transition duration-300">
-                        <i class="fa-solid fa-camera"></i>
+                <!-- Service 1: Production Photo & Vidéo -->
+                <div class="card-blur rounded-2xl overflow-hidden group hover:border-orange-500/30 transition duration-300 flex flex-col">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&q=80&w=800" alt="Production Visuelle Premium" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#04070F] via-transparent to-transparent"></div>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Premium Content Creation</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
-                        We visit your showroom/store <span class="text-orange-400 font-semibold">2 times per month</span> to shoot high-end, high-converting cinematic reels, photos, and product showcases designed to attract premium buyers.
-                    </p>
-                    <ul class="text-xs text-gray-500 space-y-2">
-                        <li><i class="fa-solid fa-check text-orange-500 mr-2"></i> Professional Gear & Editing</li>
-                        <li><i class="fa-solid fa-check text-orange-500 mr-2"></i> Directing hooks for social media</li>
-                    </ul>
+                    <div class="p-8 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-white mb-3" data-translate="s1-title">Production Visuelle Élite (2x/Mois)</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed mb-6" data-translate="s1-desc">
+                                Nous nous déplaçons deux fois par mois dans vos locaux avec du matériel cinéma professionnel pour capturer des Reels, photos de catalogue, et vitrines haut de gamme.
+                            </p>
+                        </div>
+                        <ul class="text-xs text-gray-500 space-y-2.5">
+                            <li><i class="fa-solid fa-check text-orange-500 mr-2"></i> <span data-translate="s1-f1">Direction artistique et scripts d'accroche</span></li>
+                            <li><i class="fa-solid fa-check text-orange-500 mr-2"></i> <span data-translate="s1-f2">Post-production & Color Grading Luxe</span></li>
+                        </ul>
+                    </div>
                 </div>
 
-                <!-- Service 2 -->
-                <div class="card-blur p-8 rounded-2xl relative overflow-hidden group hover:border-orange-500/30 transition duration-300">
-                    <div class="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-500 text-xl font-bold mb-6 group-hover:bg-orange-500 group-hover:text-black transition duration-300">
-                        <i class="fa-solid fa-bullseye"></i>
+                <!-- Service 2: Hyper-Targeted Ads -->
+                <div class="card-blur rounded-2xl overflow-hidden group hover:border-orange-500/30 transition duration-300 flex flex-col">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800" alt="Publicité Meta de Haute Précision" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#04070F] via-transparent to-transparent"></div>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Hyper-Targeted Ads</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
-                        We don't just boost posts. We build advanced Meta (Facebook & Instagram) ad campaigns targeted specifically at high-net-worth individuals and high-intent buyers looking for your products.
-                    </p>
-                    <ul class="text-xs text-gray-500 space-y-2">
-                        <li><i class="fa-solid fa-check text-orange-500 mr-2"></i> Lookalike & Custom Audiences</li>
-                        <li><i class="fa-solid fa-check text-orange-500 mr-2"></i> Regular optimization & A/B Testing</li>
-                    </ul>
+                    <div class="p-8 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-white mb-3" data-translate="s2-title">Campagnes Meta de Haute Précision</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed mb-6" data-translate="s2-desc">
+                                Architecture publicitaire ciblée exclusivement sur les acheteurs à fort pouvoir d'achat (HNWIs) et prospects qualifiés dans votre zone géographique.
+                            </p>
+                        </div>
+                        <ul class="text-xs text-gray-500 space-y-2.5">
+                            <li><i class="fa-solid fa-check text-orange-500 mr-2"></i> <span data-translate="s2-f1">Ciblage avancé & Audiences similaires</span></li>
+                            <li><i class="fa-solid fa-check text-orange-500 mr-2"></i> <span data-translate="s2-f2">Optimisation quotidienne du ROI publicitaire</span></li>
+                        </ul>
+                    </div>
                 </div>
 
-                <!-- Service 3 -->
-                <div class="card-blur p-8 rounded-2xl relative overflow-hidden group hover:border-orange-500/30 transition duration-300">
-                    <div class="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-500 text-xl font-bold mb-6 group-hover:bg-orange-500 group-hover:text-black transition duration-300">
-                        <i class="fa-solid fa-cubes"></i>
+                <!-- Service 3: Infrastructure -->
+                <div class="card-blur rounded-2xl overflow-hidden group hover:border-orange-500/30 transition duration-300 flex flex-col">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800" alt="Tracking et Meta Pixel Data" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#04070F] via-transparent to-transparent"></div>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">The Ads Ecosystem</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
-                        Full setup and management of Meta Business Suite, Pixel tracking, custom CRM connections, and lead forms. You get transparent dashboards to see exactly where your revenue comes from.
-                    </p>
-                    <ul class="text-xs text-gray-500 space-y-2">
-                        <li><i class="fa-solid fa-check text-orange-500 mr-2"></i> Pixel & Conversion API Setup</li>
-                        <li><i class="fa-solid fa-check text-orange-500 mr-2"></i> 100% Tracking Transparency</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- The Infrastructure / Tech stack -->
-    <section id="system" class="py-24 px-6 relative">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <span class="text-xs font-bold uppercase tracking-widest text-orange-500 mb-2 block">No Mess, Pure Infrastructure</span>
-                    <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-6 leading-tight">We build the platform, <br>You handle the orders.</h2>
-                    <p class="text-gray-400 mb-6 leading-relaxed">
-                        We connect your digital presence with top-tier marketing technology. From professional pixel integrations to track customer behaviour, to automated instant lead forms that land directly on your phone. 
-                    </p>
-                    <div class="space-y-4">
-                        <div class="flex items-start">
-                            <div class="text-orange-500 mt-1 mr-4"><i class="fa-solid fa-chart-line text-lg"></i></div>
-                            <div>
-                                <h4 class="text-white font-bold">Meta Business Portfolio Architecture</h4>
-                                <p class="text-sm text-gray-500">Clean, secure setup of your advertising assets under verified environments handled by Afrimedia Bayer.</p>
-                            </div>
+                    <div class="p-8 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-white mb-3" data-translate="s3-title">Infrastructure Data & Pixel tracking</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed mb-6" data-translate="s3-desc">
+                                Configuration avancée du Meta Business Portfolio, implémentation du Pixel, Conversion API, et tunnels de capture de leads via formulaires instantanés automatisés.
+                            </p>
                         </div>
-                        <div class="flex items-start">
-                            <div class="text-orange-500 mt-1 mr-4"><i class="fa-solid fa-bolt text-lg"></i></div>
-                            <div>
-                                <h4 class="text-white font-bold">Instant Lead Capture Tools</h4>
-                                <p class="text-sm text-gray-500">Connecting prospects instantly via WhatsApp integrations or smart lead forms.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-gradient-to-br from-gray-900 to-[#121824] p-8 rounded-3xl border border-gray-800 shadow-2xl relative">
-                    <h3 class="text-xl font-bold text-white mb-6"><i class="fa-solid fa-gears text-orange-500 mr-2"></i> Our Stack & Partners</h3>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="card-blur p-4 rounded-xl flex items-center space-x-3">
-                            <i class="fa-brands fa-meta text-2xl text-blue-500"></i>
-                            <span class="font-semibold text-sm">Meta Ads</span>
-                        </div>
-                        <div class="card-blur p-4 rounded-xl flex items-center space-x-3">
-                            <i class="fa-brands fa-instagram text-2xl text-pink-500"></i>
-                            <span class="font-semibold text-sm">Instagram Pro</span>
-                        </div>
-                        <div class="card-blur p-4 rounded-xl flex items-center space-x-3">
-                            <i class="fa-brands fa-whatsapp text-2xl text-green-500"></i>
-                            <span class="font-semibold text-sm">WA Business</span>
-                        </div>
-                        <div class="card-blur p-4 rounded-xl flex items-center space-x-3">
-                            <i class="fa-solid fa-chart-pie text-2xl text-purple-500"></i>
-                            <span class="font-semibold text-sm">Meta Pixel</span>
-                        </div>
-                    </div>
-                    <div class="mt-6 p-4 rounded-xl bg-orange-500/5 border border-orange-500/20 text-xs text-orange-300">
-                        <i class="fa-solid fa-circle-info mr-2"></i> We don't boost posts randomly. We create custom sales funnels that filter cold traffic into paying customers.
+                        <ul class="text-xs text-gray-500 space-y-2.5">
+                            <li><i class="fa-solid fa-check text-orange-500 mr-2"></i> <span data-translate="s3-f1">Tracking ultra-précis du comportement client</span></li>
+                            <li><i class="fa-solid fa-check text-orange-500 mr-2"></i> <span data-translate="s3-f2">Transparence totale des tableaux de bord</span></li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -192,29 +157,126 @@
     </section>
 
     <!-- Call To Action -->
-    <section class="py-20 px-6 card-blur border-y border-gray-800 relative overflow-hidden text-center">
+    <section class="py-24 px-6 card-blur border-y border-gray-800 relative overflow-hidden text-center">
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-orange-500/5 blur-[100px] rounded-full pointer-events-none"></div>
         <div class="max-w-3xl mx-auto relative z-10">
-            <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-6">Ready to Dominate Your Local Market?</h2>
-            <p class="text-gray-400 mb-8 max-w-xl mx-auto">Let's hop on a brief 10-minute call with <strong>Afrimedia Bayer</strong> to audit your current social media and map out your custom acquisition strategy.</p>
+            <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-6" data-translate="cta-title">Prêt à Dominer Votre Marché ?</h2>
+            <p class="text-gray-400 mb-10 max-w-xl mx-auto text-sm md:text-base" data-translate="cta-desc">Analysons vos tunnels publicitaires actuels et concevons votre plan de croissance personnalisé.</p>
             <a href="https://wa.me/212614884963" target="_blank" class="btn-gradient px-8 py-4 rounded-xl text-md font-bold text-black hover:scale-[1.02] transition inline-flex items-center gap-3 shadow-lg shadow-orange-500/20">
-                <i class="fa-brands fa-whatsapp text-xl"></i> Claim Your Strategy Session
+                <i class="fa-brands fa-whatsapp text-xl"></i> <span data-translate="cta-btn">Lancer ma session de stratégie</span>
             </a>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-8 px-6 bg-[#060911] text-sm text-gray-600 border-t border-gray-900">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-            <div>
-                &copy; 2026 <span class="text-gray-400 font-bold">AFRIMEDIA BAYER</span>. All Rights Reserved.
+    <footer class="py-10 px-6 bg-[#03050A] text-sm text-gray-600 border-t border-gray-900">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="font-bold tracking-wide text-gray-400">
+                &copy; 2026 <span class="text-orange-500">AFRIMEDIA BAYER</span>. Corporate Growth.
             </div>
-            <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 text-xs text-left">
+            <div class="flex flex-col sm:flex-row gap-4 sm:gap-8 text-xs text-center md:text-left">
                 <a href="mailto:buyerafrimedia@gmail.com" class="text-gray-500 hover:text-orange-500 transition"><i class="fa-solid fa-envelope text-orange-500/60 mr-1"></i> buyerafrimedia@gmail.com</a>
                 <a href="https://wa.me/212614884963" target="_blank" class="text-gray-500 hover:text-orange-500 transition"><i class="fa-solid fa-phone text-orange-500/60 mr-1"></i> +212 614-884963</a>
             </div>
         </div>
     </footer>
 
+    <!-- Translations Script -->
+    <script>
+        const translations = {
+            fr: {
+                "nav-cta": "Contact Pro",
+                "hero-badge": "MEMBRE DE METAMATCH & PERFORMANCE MARKETING",
+                "hero-title1": "Nous Propulsons les Showrooms & Marques de Luxe en",
+                "hero-title2": "Géants Locaux.",
+                "hero-desc": "Rentabilisez chaque dirham investi. Afrimedia Bayer déploie des infrastructures d'acquisition sur-mesure combinant production visuelle ultra-premium et campagnes publicitaires de haute précision.",
+                "hero-btn1": "Réserver un Call Stratégique",
+                "services-title1": "Notre Écosystème de",
+                "services-title2": "Croissance",
+                "services-subtitle": "Une structure d'élite conçue exclusivement pour dominer votre marché local.",
+                "s1-title": "Production Visuelle Élite (2x/Mois)",
+                "s1-desc": "Nous nous déplaçons deux fois par mois dans vos locaux avec du matériel cinéma professionnel pour capturer des Reels, photos de catalogue, et vitrines haut de gamme.",
+                "s1-f1": "Direction artistique et scripts d'accroche",
+                "s1-f2": "Post-production & Color Grading Luxe",
+                "s2-title": "Campagnes Meta de Haute Précision",
+                "s2-desc": "Architecture publicitaire ciblée exclusivement sur les acheteurs à fort pouvoir d'achat (HNWIs) et prospects qualifiés dans votre zone géographique.",
+                "s2-f1": "Ciblage avancé & Audiences similaires",
+                "s2-f2": "Optimisation quotidienne du ROI publicitaire",
+                "s3-title": "Infrastructure Data & Pixel tracking",
+                "s3-desc": "Configuration avancée du Meta Business Portfolio, implémentation du Pixel, Conversion API, et tunnels de capture de leads via formulaires instantanés automatisés.",
+                "s3-f1": "Tracking ultra-précis du comportement client",
+                "s3-f2": "Transparence totale des tableaux de bord",
+                "cta-title": "Prêt à Dominer Votre Marché ?",
+                "cta-desc": "Analysons vos tunnels publicitaires actuels et concevons votre plan de croissance personnalisé.",
+                "cta-btn": "Lancer ma session de stratégie"
+            },
+            en: {
+                "nav-cta": "Let's Talk Business",
+                "hero-badge": "METAMATCH MEMBER & PERFORMANCE MARKETING",
+                "hero-title1": "We Scale Premium Showrooms & Brands Into",
+                "hero-title2": "Local Giants.",
+                "hero-desc": "Maximize your ROI. Afrimedia Bayer builds automated customer acquisition machines combining high-end cinematic content creation with high-converting paid ads.",
+                "hero-btn1": "Book a Strategy Call",
+                "services-title1": "Our Core",
+                "services-title2": "Growth Offers",
+                "services-subtitle": "An elite infrastructure designed exclusively to dominate your local market.",
+                "s1-title": "Elite Content Production (2x/Month)",
+                "s1-desc": "We visit your showroom twice a month with professional cinema gear to shoot high-converting cinematic reels, lookbooks, and luxury showcases.",
+                "s1-f1": "Art direction and attention-grabbing hooks",
+                "s1-f2": "Premium post-production & Color Grading",
+                "s2-title": "Hyper-Targeted Meta Ads",
+                "s2-desc": "Advanced ad campaigns engineered to filter high-net-worth individuals (HNWIs) and high-intent buyers in your exact region.",
+                "s2-f1": "Lookalike & Custom Audiences setup",
+                "s2-f2": "Daily budget and ROI optimization",
+                "s3-title": "Data Infrastructure & Pixel Tracking",
+                "s3-desc": "Complete setup of Meta Business Portfolio, Conversions API, advanced Pixel tracking, and automated instant lead capturing CRM systems.",
+                "s3-f1": "Deep tracking of customer buying behavior",
+                "s3-f2": "100% data and dashboard transparency",
+                "cta-title": "Ready to Dominate Your Market?",
+                "cta-desc": "Let's audit your current sales funnels and build a custom high-ticket client acquisition blueprint.",
+                "cta-btn": "Claim Your Strategy Session"
+            },
+            ar: {
+                "nav-cta": "تواصل معنا",
+                "hero-badge": "شريك إعلاني متميز وتسويق الأداء العالي",
+                "hero-title1": "نحن نقود الشركات الكبرى والمعارض الفاخرة لتصبح",
+                "hero-title2": "الرائدة محلياً.",
+                "hero-desc": "ضاعف العائد على استثماراتك الإعلانية. إفريميديا باير تبني لك منظومة متكاملة تجمع بين التصوير السينمائي الاحترافي للمنتجات والحملات الإعلانية فائقة الدقة والتحويل.",
+                "hero-btn1": "احجز مكالمة استراتيجية الآن",
+                "services-title1": "منظومة النمو",
+                "services-title2": "الخاصة بنا",
+                "services-subtitle": "بنية تحتية تسويقية متكاملة مصممة خصيصاً للسيطرة على سوقك المحلي واستقطاب العملاء المميزين.",
+                "s1-title": "إنتاج محتوى مرئي فاخر (مرتين في الشهر)",
+                "s1-desc": "نزور مقر شركتك مرتين شهرياً بمعدات تصوير سينمائي احترافية لإنتاج مقاطع Reels وصور كتالوجات عالية الجودة لجذب المشترين المستهدفين.",
+                "s1-f1": "الإخراج الفني وكتابة سيناريوهات الفيديوهات",
+                "s1-f2": "المونتاج الاحترافي وتعديل الألوان الفاخر",
+                "s2-title": "حملات إعلانية دقيقة على منصات Meta",
+                "s2-desc": "هيكلة حملات متطورة تستهدف بدقة الأفراد ذوي القدرة الشرائية العالية والمهتمين فعلياً بمنتجاتك في منطقتك الجغرافية.",
+                "s2-f1": "إعداد الجماهير المخصصة والشبيهة (Lookalike)",
+                "s2-f2": "المتابعة اليومية لتحسين العائد على الإنفاق الإعلاني",
+                "s3-title": "البنية التحتية للبيانات و تتبع الـ Pixel",
+                "s3-desc": "إعداد متكامل لـ Meta Business Portfolio، وربط الـ Pixel و Conversion API لتأمين حساباتك وتتبع زوارك بدقة متناهية.",
+                "s3-f1": "تتبع دقيق لسلوك العميل في الشراء",
+                "s3-f2": "شفافية مطلقة في تقارير الأداء والأرقام",
+                "cta-title": "هل أنت جاهز لتسيطر على السوق؟",
+                "cta-desc": "دعنا نحلل قنواتك التسويقية الحالية ونصمم لك خطة مخصصة لجلب العملاء الكبار هذا الشهر.",
+                "cta-btn": "ابدأ جلستك الاستراتيجية مجاناً"
+            }
+        };
+
+        function changeLanguage(lang) {
+            document.documentElement.lang = lang;
+            document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+            
+            // Text switching
+            const elements = document.querySelectorAll('[data-translate]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-translate');
+                if (translations[lang] && translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+        }
+    </script>
 </body>
 </html>
