@@ -16,32 +16,50 @@
         .font-serif-luxury {
             font-family: 'Cormorant Garamond', serif;
         }
-        /* Mode transitions & gradients */
-        .theme-dark {
-            background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);
+        
+        /* تأثيرات التحول على الكروت والكتابة */
+        .custom-card, body, h1, p, span {
+            transition: all 0.5s ease;
+        }
+
+        /* 1. المود الغامق الأساسي (Dark Mode) */
+        .bg-dark-mode {
+            background: linear-gradient(135deg, #0a0a0a 0%, #161616 100%);
             color: #f3f4f6;
         }
-        .theme-light {
-            background: linear-gradient(135deg, #f7f5f0 0%, #ebe7df 100%);
-            color: #111827;
+        .bg-dark-mode .custom-card {
+            background-color: rgba(30, 30, 30, 0.45);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
         }
-        /* Custom Smooth Card Styles */
-        .custom-card {
-            transition: background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.3s ease, transform 0.3s ease;
+        .bg-dark-mode .text-muted {
+            color: rgba(243, 244, 246, 0.7);
         }
-        .theme-dark .custom-card {
-            background-color: rgba(26, 26, 26, 0.65);
-            border: 1px solid rgba(212, 175, 55, 0.15);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+
+        /* 2. المود المضيء (Light Mode) - دبا الباكgراوند كاملة كاترجع بيضا ناصعة وراقية */
+        .bg-light-mode {
+            background: linear-gradient(135deg, #f9f9f9 0%, #eddcd2 100%);
+            color: #1a1a1a;
         }
-        .theme-light .custom-card {
+        .bg-light-mode .custom-card {
             background-color: rgba(255, 255, 255, 0.75);
-            border: 1px solid rgba(197, 160, 89, 0.2);
-            box-shadow: 0 20px 40px rgba(197, 160, 89, 0.08);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+        .bg-light-mode .text-muted {
+            color: #4a4a4a;
+        }
+        .bg-light-mode h1 {
+            color: #111111;
+        }
+        
+        /* الصور كتبقى محمية وطبيعية 100% ومكايقيسهاش المود */
+        img {
+            transition: transform 0.3s ease;
         }
     </style>
 </head>
-<body class="theme-dark min-h-screen flex flex-col justify-between overflow-x-hidden antialiased">
+<body class="bg-dark-mode min-h-screen flex flex-col justify-between overflow-x-hidden antialiased">
 
     <audio id="bgMusic" loop>
         <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
@@ -76,7 +94,7 @@
                 Elevate Your Luxury Brand Experience
             </h1>
             
-            <p id="description" class="text-sm md:text-base opacity-80 max-w-2xl mx-auto mb-12 leading-relaxed font-light">
+            <p id="description" class="text-sm md:text-base text-muted max-w-2xl mx-auto mb-12 leading-relaxed font-light">
                 We design premium advertising architecture exclusively for high-end furniture showrooms and boutique creators. We turn discretion and prestige into predictable market dominance.
             </p>
 
@@ -95,25 +113,25 @@
         </div>
     </main>
 
-    <footer class="w-full text-center py-6 text-[10px] opacity-40 tracking-[0.3em] font-light">
+    <footer class="w-full text-center py-6 text-[10px] text-neutral-500 tracking-[0.3em] font-light">
         &copy; 2026 PRESTIGE MEDIA. ALL RIGHTS RESERVED.
     </footer>
 
     <script>
-        // --- 1. Theme Configuration (Dark / Light) ---
+        // --- 1. Theme Configuration (تغيير الخلفية بالكامل) ---
         const themeBtn = document.getElementById('themeBtn');
         const themeIcon = document.getElementById('themeIcon');
         const body = document.body;
 
         themeBtn.addEventListener('click', () => {
-            if (body.classList.contains('theme-dark')) {
-                body.classList.remove('theme-dark');
-                body.classList.add('theme-light');
-                themeIcon.className = 'fas fa-moon'; // Switch to moon icon during light mode
+            if (body.classList.contains('bg-dark-mode')) {
+                body.classList.remove('bg-dark-mode');
+                body.classList.add('bg-light-mode');
+                themeIcon.className = 'fas fa-moon'; // الأيقونة تتبدل لقمر ف المود الأبيض
             } else {
-                body.classList.remove('theme-light');
-                body.classList.add('theme-dark');
-                themeIcon.className = 'fas fa-sun'; // Switch to sun icon during dark mode
+                body.classList.remove('bg-light-mode');
+                body.classList.add('bg-dark-mode');
+                themeIcon.className = 'fas fa-sun'; // الأيقونة ترجع شمس ف المود الكحل
             }
         });
 
@@ -123,7 +141,6 @@
         const bgMusic = document.getElementById('bgMusic');
         let audioPlaying = false;
         
-        // Initializing low comfortable volume level for prestige feeling
         bgMusic.volume = 0.25;
 
         musicBtn.addEventListener('click', () => {
@@ -131,7 +148,7 @@
                 bgMusic.play().then(() => {
                     audioPlaying = true;
                     musicIcon.className = 'fas fa-pause text-[#d4af37] animate-pulse';
-                }).catch(error => console.log("Audio presentation blocked until user interaction event.", error));
+                }).catch(error => console.log("Audio presentation blocked", error));
             } else {
                 bgMusic.pause();
                 audioPlaying = false;
@@ -173,7 +190,6 @@
             document.getElementById('description').textContent = dictionary[lang].desc;
             document.getElementById('ctaBtn').textContent = dictionary[lang].cta;
 
-            // Handle text alignment & direction natively for Arabic font rendering
             if (lang === 'ar') {
                 body.dir = 'rtl';
                 document.getElementById('mainTitle').classList.add('leading-normal');
