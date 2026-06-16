@@ -1,202 +1,176 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prestige Media - Premium Acquisition</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-
+    <title>LUXE CONCERT | الأثاث المنزلي الفاخر</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            transition: background 0.5s ease, color 0.5s ease;
-        }
-        .font-serif-luxury {
-            font-family: 'Cormorant Garamond', serif;
-        }
-        
-        /* تأثيرات التحول على الكروت والكتابة */
-        .custom-card, body, h1, p, span {
-            transition: all 0.5s ease;
-        }
-
-        /* 1. المود الغامق الأساسي (Dark Mode) */
-        .bg-dark-mode {
-            background: linear-gradient(135deg, #0a0a0a 0%, #161616 100%);
-            color: #f3f4f6;
-        }
-        .bg-dark-mode .custom-card {
-            background-color: rgba(30, 30, 30, 0.45);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
-        }
-        .bg-dark-mode .text-muted {
-            color: rgba(243, 244, 246, 0.7);
-        }
-
-        /* 2. المود المضيء (Light Mode) - دبا الباكgراوند كاملة كاترجع بيضا ناصعة وراقية */
-        .bg-light-mode {
-            background: linear-gradient(135deg, #f9f9f9 0%, #eddcd2 100%);
-            color: #1a1a1a;
-        }
-        .bg-light-mode .custom-card {
-            background-color: rgba(255, 255, 255, 0.75);
-            border: 1px solid rgba(212, 175, 55, 0.4);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-        }
-        .bg-light-mode .text-muted {
-            color: #4a4a4a;
-        }
-        .bg-light-mode h1 {
-            color: #111111;
-        }
-        
-        /* الصور كتبقى محمية وطبيعية 100% ومكايقيسهاش المود */
-        img {
-            transition: transform 0.3s ease;
-        }
+        .font-luxury { font-family: 'Cinzel', serif; }
+        .font-arabic { font-family: 'Cairo', sans-serif; }
+        body { background-color: #0b0c10; color: #c5a880; } /* ألوان ملكية: أسود فاخر ودهبي خافت */
     </style>
 </head>
-<body class="bg-dark-mode min-h-screen flex flex-col justify-between overflow-x-hidden antialiased">
+<body class="overflow-hidden font-luxury">
 
-    <audio id="bgMusic" loop>
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-    </audio>
-
-    <header class="w-full max-w-6xl mx-auto px-6 py-6 flex justify-between items-center z-50">
-        <div class="flex items-center space-x-2">
-            <span class="font-serif-luxury text-2xl md:text-3xl tracking-[0.25em] text-[#d4af37] font-semibold">PRESTIGE</span>
-        </div>
-        
-        <div class="flex items-center space-x-4">
-            <button id="musicBtn" class="custom-card w-12 h-12 rounded-full flex items-center justify-center text-lg hover:scale-105 active:scale-95 text-[#d4af37]" title="Play/Pause Music">
-                <i id="musicIcon" class="fas fa-music"></i>
-            </button>
+    <div id="splash-screen" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#0b0c10] transition-opacity duration-1000">
+        <div class="text-center max-w-md px-6 animate-fade-in">
+            <h1 class="text-4xl md:text-5xl font-bold tracking-widest text-[#c5a880] mb-2 uppercase">Maison Luxe</h1>
+            <p class="text-gray-400 text-xs tracking-widest uppercase mb-12">Haute Ébénisterie & Design</p>
             
-            <button id="themeBtn" class="custom-card w-12 h-12 rounded-full flex items-center justify-center text-lg hover:scale-105 active:scale-95 text-[#d4af37]" title="Toggle Display Theme">
-                <i id="themeIcon" class="fas fa-sun"></i>
-            </button>
-        </div>
-    </header>
-
-    <main class="flex-grow flex items-center justify-center px-4 py-8">
-        <div class="custom-card max-w-3xl w-full rounded-3xl p-8 md:p-14 text-center relative backdrop-blur-md">
+            <p class="text-sm text-gray-300 mb-6 italic">Bienvenue / مرحبا بكم</p>
             
-            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-40 h-[3px] bg-gradient-to-r from-transparent via-[#d4af37] to-transparent"></div>
-
-            <span id="subTitle" class="text-xs md:text-sm tracking-[0.35em] uppercase text-[#d4af37] font-medium mb-4 block">
-                High-End Media Buying & Creatives
-            </span>
-            
-            <h1 id="mainTitle" class="font-serif-luxury text-4xl md:text-6xl font-normal tracking-wide mb-6 leading-[1.15]">
-                Elevate Your Luxury Brand Experience
-            </h1>
-            
-            <p id="description" class="text-sm md:text-base text-muted max-w-2xl mx-auto mb-12 leading-relaxed font-light">
-                We design premium advertising architecture exclusively for high-end furniture showrooms and boutique creators. We turn discretion and prestige into predictable market dominance.
-            </p>
-
-            <div class="flex flex-wrap justify-center gap-3 mb-10">
-                <button onclick="changeLang('en')" class="px-5 py-2 text-xs tracking-widest uppercase border border-neutral-700/40 rounded-full hover:border-[#d4af37] transition-all duration-300 font-medium">EN</button>
-                <button onclick="changeLang('fr')" class="px-5 py-2 text-xs tracking-widest uppercase border border-neutral-700/40 rounded-full hover:border-[#d4af37] transition-all duration-300 font-medium">FR</button>
-                <button onclick="changeLang('ar')" class="px-5 py-2 text-xs tracking-widest uppercase border border-neutral-700/40 rounded-full hover:border-[#d4af37] transition-all duration-300 font-medium">AR</button>
-                <button onclick="changeLang('es')" class="px-5 py-2 text-xs tracking-widest uppercase border border-neutral-700/40 rounded-full hover:border-[#d4af37] transition-all duration-300 font-medium">ES</button>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <button onclick="enterSite('fr')" class="w-48 border border-[#c5a880] text-[#c5a880] py-3 px-6 hover:bg-[#c5a880] hover:text-[#0b0c10] transition-all duration-500 tracking-widest text-xs uppercase cursor-pointer">
+                    Entrer en Français
+                </button>
+                <button onclick="enterSite('ar')" class="w-48 border border-[#c5a880] text-[#c5a880] py-3 px-6 hover:bg-[#c5a880] hover:text-[#0b0c10] transition-all duration-500 font-arabic text-sm cursor-pointer">
+                    الدخول بالعربية
+                </button>
             </div>
+        </div>
+    </div>
 
-            <div>
-                <a href="https://wa.me/212600000000" id="ctaBtn" class="inline-block bg-gradient-to-r from-[#d4af37] to-[#aa841a] text-black font-semibold tracking-[0.2em] text-xs uppercase px-10 py-4 rounded-full shadow-xl hover:shadow-[0_10px_30px_rgba(212,175,55,0.35)] transition-all duration-300 transform hover:-translate-y-1">
-                    Acquire Elite Access
+    <div id="main-content" class="hidden opacity-0 transition-opacity duration-1000">
+        
+        <header class="fixed w-full top-0 left-0 z-40 bg-[#0b0c10]/90 backdrop-blur-md border-b border-[#c5a880]/10 px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold tracking-widest text-[#c5a880] uppercase">Maison Luxe</a>
+            <nav class="hidden md:flex space-x-8 text-xs tracking-widest uppercase text-gray-300">
+                <a href="#collection" class="hover:text-[#c5a880] transition">Collection</a>
+                <a href="#about" class="hover:text-[#c5a880] transition">Notre Histoire</a>
+                <a href="#contact" class="hover:text-[#c5a880] transition">Contact</a>
+            </nav>
+            <a href="#contact" class="border border-[#c5a880]/40 text-[#c5a880] text-xs uppercase tracking-wider py-2 px-4 hover:border-[#c5a880] transition lang-target" data-fr="Réserver un Conseil" data-ar="حجز استشارة مجانية">
+                Réserver un Conseil
+            </a>
+        </header>
+
+        <section class="relative h-screen flex items-center justify-center bg-cover bg-center px-6" style="background-image: linear-gradient(rgba(11, 12, 16, 0.85), rgba(11, 12, 16, 0.85)), url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1920&q=80');">
+            <div class="text-center max-w-3xl">
+                <span class="text-xs tracking-widest uppercase text-[#c5a880] block mb-4 lang-target" data-fr="Édition Limitée" data-ar="قطع حصرية ومحدودة">Édition Limitée</span>
+                <h2 class="text-4xl md:text-6xl font-bold text-white mb-6 uppercase tracking-wide leading-tight lang-target" data-fr="L'art de vivre dans l'élégance" data-ar="فخامة التصميم، روعة التفاصيل">
+                    L'art de vivre dans l'élégance
+                </h2>
+                <p class="text-gray-400 text-sm md:text-base max-w-xl mx-auto mb-10 leading-relaxed lang-target" data-fr="Découvrez des meubles d'exception conçus pour sublimer votre intérieur avec une touche de prestige unique." data-ar="اكتشف تشكيلة استثنائية من الأثاث المصمم خصيصاً ليمنح منزلك طابع البرستيج والرفاهية التي تليق بك.">
+                    Découvrez des meubles d'exception conçus pour sublimer votre intérieur avec une touche de prestige unique.
+                </p>
+                <a href="#collection" class="inline-block bg-[#c5a880] text-[#0b0c10] font-semibold text-xs uppercase tracking-widest py-4 px-10 hover:bg-[#b0936b] transition duration-300 lang-target" data-fr="Explorer la Collection" data-ar="اكتشف المجموعة">
+                    Explorer la Collection
                 </a>
             </div>
-        </div>
-    </main>
+        </section>
 
-    <footer class="w-full text-center py-6 text-[10px] text-neutral-500 tracking-[0.3em] font-light">
-        &copy; 2026 PRESTIGE MEDIA. ALL RIGHTS RESERVED.
-    </footer>
+        <section id="collection" class="py-24 px-6 max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h3 class="text-2xl md:text-3xl font-bold uppercase text-white mb-2 tracking-widest lang-target" data-fr="Le Chef-d'œuvre" data-ar="القطع الفنية">Le Chef-d'œuvre</h3>
+                <div class="w-16 h-[1px] bg-[#c5a880] mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="group overflow-hidden bg-[#12141c] border border-white/5">
+                    <div class="overflow-hidden relative h-80">
+                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80" alt="Salon" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-700">
+                    </div>
+                    <div class="p-6 text-center">
+                        <h4 class="text-lg text-white font-semibold mb-2 lang-target" data-fr="Le Salon Royal" data-ar="الصالون الملكي">Le Salon Royal</h4>
+                        <p class="text-gray-400 text-xs uppercase tracking-wider lang-target" data-fr="Confort & Prestige" data-ar="الراحة والبرستيج">Confort & Prestige</p>
+                    </div>
+                </div>
+                <div class="group overflow-hidden bg-[#12141c] border border-white/5">
+                    <div class="overflow-hidden relative h-80">
+                        <img src="https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=800&q=80" alt="Chambre" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-700">
+                    </div>
+                    <div class="p-6 text-center">
+                        <h4 class="text-lg text-white font-semibold mb-2 lang-target" data-fr="Chambre Impériale" data-ar="غرفة النوم الإمبراطورية">Chambre Impériale</h4>
+                        <p class="text-gray-400 text-xs uppercase tracking-wider lang-target" data-fr="Sérénité Absolue" data-ar="هدوء وفخامة مطلقة">Sérénité Absolue</p>
+                    </div>
+                </div>
+                <div class="group overflow-hidden bg-[#12141c] border border-white/5">
+                    <div class="overflow-hidden relative h-80">
+                        <img src="https://images.unsplash.com/photo-1617806118233-18e1db207f62?auto=format&fit=crop&w=800&q=80" alt="Salle à manger" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-700">
+                    </div>
+                    <div class="p-6 text-center">
+                        <h4 class="text-lg text-white font-semibold mb-2 lang-target" data-fr="Salle à Manger Majestueuse" data-ar="مائدة الطعام الفاخرة">Salle à Manger Majestueuse</h4>
+                        <p class="text-gray-400 text-xs uppercase tracking-wider lang-target" data-fr="Design Contemporain" data-ar="تصميم عصري راقٍ">Design Contemporain</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-24 bg-[#12141c] px-6 border-t border-white/5">
+            <div class="max-w-xl mx-auto">
+                <div class="text-center mb-12">
+                    <h3 class="text-2xl md:text-3xl font-bold uppercase text-white mb-4 tracking-widest lang-target" data-fr="Demande d'informations" data-ar="طلب معلومات واستشارة">Demande d'informations</h3>
+                    <p class="text-gray-400 text-xs md:text-sm lang-target" data-fr="Laissez-nous vos coordonnées, un conseiller privé vous contactera sous 24 heures." data-ar="اترك معلوماتك هنا، وسيتصل بك مستشارنا الخاص في أقل من 24 ساعة لتنسيق طلبك.">
+                        Laissez-nous vos coordonnées, un conseiller privé vous contactera sous 24 heures.
+                    </p>
+                </div>
+
+                <form action="#" method="POST" class="space-y-6">
+                    <div>
+                        <label class="block text-xs uppercase tracking-widest text-[#c5a880] mb-2 lang-target" data-fr="Nom Complet" data-ar="الاسم الكامل">Nom Complet</label>
+                        <input type="text" required class="w-full bg-[#0b0c10] border border-white/10 p-4 text-white text-sm focus:border-[#c5a880] outline-none transition">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-widest text-[#c5a880] mb-2 lang-target" data-fr="Téléphone (WhatsApp)" data-ar="رقم الهاتف (واتساب)">Téléphone (WhatsApp)</label>
+                        <input type="tel" required class="w-full bg-[#0b0c10] border border-white/10 p-4 text-white text-sm focus:border-[#c5a880] outline-none transition">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-widest text-[#c5a880] mb-2 lang-target" data-fr="Ville" data-ar="المدينة">Ville</label>
+                        <input type="text" required class="w-full bg-[#0b0c10] border border-white/10 p-4 text-white text-sm focus:border-[#c5a880] outline-none transition">
+                    </div>
+                    <button type="submit" class="w-full bg-[#c5a880] text-[#0b0c10] font-bold text-xs uppercase tracking-widest py-4 cursor-pointer hover:bg-[#b0936b] transition duration-300 lang-target" data-fr="Envoyer ma Demande" data-ar="إرسال الطلب الآن">
+                        Envoyer ma Demande
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <footer class="py-8 text-center text-xs text-gray-500 tracking-wider border-t border-white/5">
+            <p>&copy; 2026 Maison Luxe. All Rights Reserved.</p>
+        </footer>
+
+    </div>
 
     <script>
-        // --- 1. Theme Configuration (تغيير الخلفية بالكامل) ---
-        const themeBtn = document.getElementById('themeBtn');
-        const themeIcon = document.getElementById('themeIcon');
-        const body = document.body;
-
-        themeBtn.addEventListener('click', () => {
-            if (body.classList.contains('bg-dark-mode')) {
-                body.classList.remove('bg-dark-mode');
-                body.classList.add('bg-light-mode');
-                themeIcon.className = 'fas fa-moon'; // الأيقونة تتبدل لقمر ف المود الأبيض
-            } else {
-                body.classList.remove('bg-light-mode');
-                body.classList.add('bg-dark-mode');
-                themeIcon.className = 'fas fa-sun'; // الأيقونة ترجع شمس ف المود الكحل
-            }
-        });
-
-        // --- 2. Background Audio Track Automation ---
-        const musicBtn = document.getElementById('musicBtn');
-        const musicIcon = document.getElementById('musicIcon');
-        const bgMusic = document.getElementById('bgMusic');
-        let audioPlaying = false;
-        
-        bgMusic.volume = 0.25;
-
-        musicBtn.addEventListener('click', () => {
-            if (!audioPlaying) {
-                bgMusic.play().then(() => {
-                    audioPlaying = true;
-                    musicIcon.className = 'fas fa-pause text-[#d4af37] animate-pulse';
-                }).catch(error => console.log("Audio presentation blocked", error));
-            } else {
-                bgMusic.pause();
-                audioPlaying = false;
-                musicIcon.className = 'fas fa-music text-[#d4af37]';
-            }
-        });
-
-        // --- 3. Professional Localization Dictionary ---
-        const dictionary = {
-            en: {
-                sub: "High-End Media Buying & Creatives",
-                title: "Elevate Your Luxury Brand Experience",
-                desc: "We design premium advertising architecture exclusively for high-end furniture showrooms and boutique creators. We turn discretion and prestige into predictable market dominance.",
-                cta: "Acquire Elite Access"
-            },
-            fr: {
-                sub: "Acquisition Média & Créations Haut de Gamme",
-                title: "Sublimez l'Expérience de Votre Marque",
-                desc: "Nous concevons des architectures publicitaires premium exclusivement pour les showrooms de mobilier de luxe. Transformez le prestige en domination absolue du marché.",
-                cta: "Demander un Accès Élite"
-            },
-            ar: {
-                sub: "إعلانات حصرية وصناعة محتوى فاخر",
-                title: "ارتقِ ببرستيج علامتك التجارية الفاخرة",
-                desc: "نصمم إستراتيجيات إعلانية متكاملة وبأعلى جودة، مخصصة حصرياً لمعارض الأثاث الفاخر والمشاريع الراقية. نحافظ على فخامة اسمك ونضمن لك صدارة السوق.",
-                cta: "احصل على استشارة النخبة"
-            },
-            es: {
-                sub: "Adquisición de Medios y Creatividad Premium",
-                title: "Eleve la Experiencia de su Marca de Lujo",
-                desc: "Diseñamos arquitectura publicitaria exclusiva para salones de muebles de alta gama y creadores boutique. Convertimos el prestigio en un dominio predecible del mercado.",
-                cta: "Adquirir Acceso Élite"
-            }
-        };
-
-        function changeLang(lang) {
-            document.getElementById('subTitle').textContent = dictionary[lang].sub;
-            document.getElementById('mainTitle').textContent = dictionary[lang].title;
-            document.getElementById('description').textContent = dictionary[lang].desc;
-            document.getElementById('ctaBtn').textContent = dictionary[lang].cta;
-
+        function enterSite(lang) {
+            const splash = document.getElementById('splash-screen');
+            const main = document.getElementById('main-content');
+            
+            // تطبيق اتجاه النص والخطوط على حسب اللغة المختارة
             if (lang === 'ar') {
-                body.dir = 'rtl';
-                document.getElementById('mainTitle').classList.add('leading-normal');
+                document.documentElement.dir = 'rtl';
+                document.body.classList.remove('font-luxury');
+                document.body.classList.add('font-arabic');
             } else {
-                body.dir = 'ltr';
-                document.getElementById('mainTitle').classList.remove('leading-normal');
+                document.documentElement.dir = 'ltr';
+                document.body.classList.remove('font-arabic');
+                document.body.classList.add('font-luxury');
             }
+
+            // تبديل النصوص بناء على الـ data attributes
+            const targets = document.querySelectorAll('.lang-target');
+            targets.forEach(el => {
+                if(lang === 'ar') {
+                    el.textContent = el.getAttribute('data-ar');
+                } else {
+                    el.textContent = el.getAttribute('data-fr');
+                }
+            });
+
+            // إخفاء الـ Splash Screen وإظهار الموقع بسلاسة (Animation)
+            splash.classList.add('opacity-0');
+            setTimeout(() => {
+                splash.style.display = 'none';
+                main.classList.remove('hidden');
+                document.body.classList.remove('overflow-hidden'); // السماح بالـ Scroll
+                setTimeout(() => {
+                    main.classList.add('opacity-100');
+                }, 50);
+            }, 1000);
         }
     </script>
 </body>
