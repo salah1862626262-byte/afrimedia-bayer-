@@ -1,351 +1,448 @@
 <!DOCTYPE html>
-<html lang="fr" dir="ltr" class="dark">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Afrimedia Bayer | Performance Marketing & Production de Prestige</title>
+    <title>Prestige Media - High-End Acquisition</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-        }
-    </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
     <style>
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            transition: background-color 0.3s, color 0.3s;
+            transition: background 0.5s ease, color 0.5s ease;
         }
-        .gradient-text {
-            background: linear-gradient(135deg, #FF6B00 0%, #FFA800 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .font-serif-luxury {
+            font-family: 'Cormorant Garamond', serif;
         }
-        .btn-gradient {
-            background: linear-gradient(135deg, #FF6B00 0%, #FF8A00 100%);
+        
+        .custom-card, body, h1, p, span {
+            transition: all 0.5s ease;
         }
-        .card-blur {
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+
+        /* Dark Mode (الأساسي) */
+        .bg-dark-mode {
+            background: linear-gradient(135deg, #0a0a0a 0%, #161616 100%);
+            color: #f3f4f6;
         }
-        .light .card-blur {
-            background: rgba(0, 0, 0, 0.02);
-            border: 1px solid rgba(0, 0, 0, 0.05);
+        .bg-dark-mode .custom-card {
+            background-color: rgba(30, 30, 30, 0.45);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
         }
-        [lang="ar"] {
-            direction: rtl;
+        .bg-dark-mode .text-muted {
+            color: rgba(243, 244, 246, 0.7);
+        }
+        .bg-dark-mode .input-field {
+            background-color: rgba(20, 20, 20, 0.6);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            color: #ffffff;
+        }
+
+        /* Light Mode */
+        .bg-light-mode {
+            background: linear-gradient(135deg, #f9f9f9 0%, #eddcd2 100%);
+            color: #1a1a1a;
+        }
+        .bg-light-mode .custom-card {
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+        .bg-light-mode .text-muted {
+            color: #4a4a4a;
+        }
+        .bg-light-mode .input-field {
+            background-color: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            color: #1a1a1a;
+        }
+        
+        .fade-out {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+        }
+
+        .tab-btn.active {
+            border-color: #d4af37;
+            color: #d4af37;
+            background-color: rgba(212, 175, 55, 0.1);
         }
     </style>
 </head>
-<body class="bg-[#060913] text-gray-200 dark:bg-[#060913] dark:text-gray-200 light:bg-gray-50 light:text-gray-900 antialiased selection:bg-orange-500 selection:text-white">
+<body class="bg-dark-mode min-h-screen flex flex-col justify-between overflow-x-hidden antialiased">
 
-    <audio id="lofiAudio" loop src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+    <audio id="bgMusic" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
 
-    <header class="fixed top-0 left-0 w-full z-50 card-blur border-b border-gray-800/80 dark:border-gray-800/80 light:border-gray-200/80">
-        <div class="max-w-7xl px-6 py-4 mx-auto flex items-center justify-between">
-            <div class="text-xl md:text-2xl font-extrabold tracking-wider text-black dark:text-white light:text-gray-900">
-                AFRIMEDIA <span class="text-orange-500">BAYER</span>
-            </div>
+    <div id="languageOverlay" class="fixed inset-0 bg-[#0a0a0a] z- flex items-center justify-center p-4 transition-all duration-500">
+        <div class="max-w-md w-full border border-[#d4af37]/30 bg-[#121212] rounded-3xl p-8 text-center shadow-2xl relative">
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-[2px] bg-gradient-to-r from-transparent via-[#d4af37] to-transparent"></div>
             
-            <div class="flex items-center space-x-3 md:space-x-6">
-                <button onclick="toggleTheme()" class="p-2 rounded-full border border-gray-700 dark:border-gray-700 light:border-gray-300 hover:text-orange-500 transition focus:outline-none" title="Changer le mode">
-                    <i id="themeIcon" class="fa-solid fa-sun text-sm md:text-base"></i>
-                </button>
-
-                <button onclick="toggleMusic()" class="p-2 rounded-full border border-gray-700 dark:border-gray-700 light:border-gray-300 text-orange-500 hover:scale-105 transition focus:outline-none flex items-center justify-center" title="Lofi Ambient Music">
-                    <i id="musicIcon" class="fa-solid fa-volume-xmark text-sm md:text-base"></i>
-                </button>
-
-                <div class="relative inline-block text-left">
-                    <select id="langSelect" onchange="changeLanguage(this.value)" class="bg-transparent text-xs font-bold text-gray-400 dark:text-gray-300 light:text-gray-700 border border-gray-700 dark:border-gray-700 light:border-gray-300 rounded-full px-3 py-1.5 focus:outline-none focus:border-orange-500 cursor-pointer">
-                        <option value="fr" class="bg-gray-900 text-white">🇫🇷 FR</option>
-                        <option value="en" class="bg-gray-900 text-white">🇺🇸 EN</option>
-                        <option value="es" class="bg-gray-900 text-white">🇪🇸 ES</option>
-                        <option value="ar" class="bg-gray-900 text-white">🇲🇦 AR</option>
-                    </select>
-                </div>
-                
-                <a href="https://wa.me/212614884963" target="_blank" class="btn-gradient px-4 py-2 md:px-5 md:py-2.5 rounded-full text-xs font-bold text-black hover:opacity-90 transition shadow-lg shadow-orange-500/20">
-                    <span data-translate="nav-cta">Contact Pro</span>
-                </a>
+            <span class="font-serif-luxury text-xl tracking-[0.30em] text-[#d4af37] font-semibold block mb-2">PRESTIGE</span>
+            <h2 class="font-serif-luxury text-2xl text-neutral-200 mb-8 font-light">Select Your Language</h2>
+            
+            <div class="grid grid-cols-1 gap-4">
+                <button onclick="selectInitialLang('en')" class="w-full py-3 border border-neutral-800 rounded-xl text-neutral-300 hover:border-[#d4af37] hover:text-[#d4af37] transition-all duration-300 text-sm tracking-widest font-medium">ENGLISH</button>
+                <button onclick="selectInitialLang('fr')" class="w-full py-3 border border-neutral-800 rounded-xl text-neutral-300 hover:border-[#d4af37] hover:text-[#d4af37] transition-all duration-300 text-sm tracking-widest font-medium">FRANÇAIS</button>
+                <button onclick="selectInitialLang('ar')" class="w-full py-3 border border-neutral-800 rounded-xl text-neutral-300 hover:border-[#d4af37] hover:text-[#d4af37] transition-all duration-300 text-sm tracking-widest font-medium">العربية</button>
+                <button onclick="selectInitialLang('es')" class="w-full py-3 border border-neutral-800 rounded-xl text-neutral-300 hover:border-[#d4af37] hover:text-[#d4af37] transition-all duration-300 text-sm tracking-widest font-medium">ESPAÑOL</button>
             </div>
+        </div>
+    </div>
+
+    <header class="w-full max-w-6xl mx-auto px-6 py-6 flex justify-between items-center z-50">
+        <div class="flex items-center space-x-2">
+            <span class="font-serif-luxury text-2xl md:text-3xl tracking-[0.25em] text-[#d4af37] font-semibold">PRESTIGE</span>
+        </div>
+        
+        <div class="flex items-center space-x-4">
+            <button id="musicBtn" class="custom-card w-12 h-12 rounded-full flex items-center justify-center text-lg hover:scale-105 active:scale-95 text-[#d4af37]">
+                <i id="musicIcon" class="fas fa-music"></i>
+            </button>
+            
+            <button id="themeBtn" class="custom-card w-12 h-12 rounded-full flex items-center justify-center text-lg hover:scale-105 active:scale-95 text-[#d4af37]">
+                <i id="themeIcon" class="fas fa-sun"></i>
+            </button>
         </div>
     </header>
 
-    <section class="relative pt-44 pb-24 px-6 overflow-hidden">
-        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-orange-500/10 blur-[140px] rounded-full pointer-events-none"></div>
+    <main class="flex-grow flex flex-col items-center justify-center px-4 py-8 max-w-4xl mx-auto w-full space-y-12">
         
-        <div class="max-w-5xl mx-auto text-center relative z-10">
-            <span class="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-widest text-orange-400 uppercase rounded-full bg-orange-500/10 border border-orange-500/20" data-translate="hero-badge">
-                MARKETING DE PERFORMANCE & PRODUCTION IMMERSIVE
+        <div class="custom-card w-full rounded-3xl p-8 md:p-14 text-center relative backdrop-blur-md">
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-40 h-[3px] bg-gradient-to-r from-transparent via-[#d4af37] to-transparent"></div>
+
+            <span id="subTitle" class="text-xs md:text-sm tracking-[0.35em] uppercase text-[#d4af37] font-medium mb-4 block">
+                High-End Media Buying & Premium Creatives
             </span>
-            <h1 class="text-4xl md:text-7xl font-extrabold text-black dark:text-white light:text-gray-900 tracking-tight leading-tight mb-8">
-                <span data-translate="hero-title1">Nous Transformons vos Showrooms & Boutiques en</span> <span class="gradient-text" data-translate="hero-title2">Leaders du Marché.</span>
+            
+            <h1 id="mainTitle" class="font-serif-luxury text-4xl md:text-6xl font-normal tracking-wide mb-6 leading-[1.15]">
+                Elevate Your Luxury Brand Experience
             </h1>
-            <p class="text-base md:text-xl text-gray-500 dark:text-gray-400 light:text-gray-600 max-w-3xl mx-auto mb-10 leading-relaxed" data-translate="hero-desc">
-                Ne gaspillez plus votre budget dans des campagnes invisibles. Afrimedia Bayer déploie une infrastructure d'acquisition sur-mesure combinant création de contenu visuel ultra-premium (Mobilier, Déco, Showrooms) et publicités ciblées à fort retour sur investissement.
+            
+            <p id="description" class="text-sm md:text-base text-muted max-w-2xl mx-auto mb-8 leading-relaxed font-light">
+                We design premium advertising architecture exclusively for high-end furniture showrooms and boutique creators. We turn discretion and prestige into predictable market dominance.
             </p>
-            <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
-                <a href="https://wa.me/212614884963" target="_blank" class="w-full sm:w-auto btn-gradient px-8 py-4 rounded-xl text-md font-bold text-black hover:scale-[1.02] transition shadow-xl shadow-orange-500/20 text-center">
-                    <i class="fa-brands fa-whatsapp mr-2 text-lg"></i> <span data-translate="hero-btn1">Réserver un Call Stratégique</span>
-                </a>
+
+            <div class="flex flex-wrap justify-center gap-3 mb-4">
+                <button onclick="changeLang('en')" class="px-5 py-2 text-xs tracking-widest uppercase border border-neutral-700/40 rounded-full hover:border-[#d4af37] transition-all duration-300 font-medium">EN</button>
+                <button onclick="changeLang('fr')" class="px-5 py-2 text-xs tracking-widest uppercase border border-neutral-700/40 rounded-full hover:border-[#d4af37] transition-all duration-300 font-medium">FR</button>
+                <button onclick="changeLang('ar')" class="px-5 py-2 text-xs tracking-widest uppercase border border-neutral-700/40 rounded-full hover:border-[#d4af37] transition-all duration-300 font-medium">AR</button>
+                <button onclick="changeLang('es')" class="px-5 py-2 text-xs tracking-widest uppercase border border-neutral-700/40 rounded-full hover:border-[#d4af37] transition-all duration-300 font-medium">ES</button>
             </div>
         </div>
-    </section>
 
-    <section id="services" class="py-24 px-6 border-t border-gray-900 dark:border-gray-900 light:border-gray-200 bg-[#04070F] dark:bg-[#04070F] light:bg-white">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center max-w-3xl mx-auto mb-20">
-                <h2 class="text-3xl md:text-5xl font-extrabold text-black dark:text-white light:text-gray-900 mb-4"><span data-translate="services-title1">Notre Écosystème de</span> <span class="text-orange-500" data-translate="services-title2">Croissance</span></h2>
-                <p class="text-gray-500 dark:text-gray-400 light:text-gray-600 text-sm md:text-base" data-translate="services-subtitle">Une stratégie d'élite conçue exclusivement pour dominer votre secteur au niveau local.</p>
-            </div>
+        <div class="flex justify-center space-x-4 md:space-x-6 w-full max-w-md mx-auto">
+            <button id="btnTabServices" onclick="switchTab('services')" class="tab-btn active w-1/2 py-3 text-xs md:text-sm tracking-widest uppercase border border-neutral-800 rounded-xl transition-all duration-300 font-medium">
+                <i class="fas fa-concierge-bell mr-2"></i> <span id="tabServicesText">Our Services</span>
+            </button>
+            <button id="btnTabGallery" onclick="switchTab('gallery')" class="tab-btn w-1/2 py-3 text-xs md:text-sm tracking-widest uppercase border border-neutral-800 rounded-xl transition-all duration-300 font-medium">
+                <i class="fas fa-camera-retro mr-2"></i> <span id="tabGalleryText">Photography Showcase</span>
+            </button>
+        </div>
 
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="card-blur rounded-2xl overflow-hidden group hover:border-orange-500/30 transition duration-300 flex flex-col">
-                    <div class="h-56 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=800" alt="Production Photo Canapé et Meubles" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#04070F] dark:from-[#04070F] light:from-white via-transparent to-transparent"></div>
+        <div id="sectionServices" class="custom-card w-full rounded-3xl p-8 md:p-12 relative backdrop-blur-md">
+            <h2 id="servicesTitle" class="font-serif-luxury text-2xl md:text-4xl text-center text-[#d4af37] mb-8 tracking-wide">Our Bespoke Services</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="border border-neutral-800/60 rounded-2xl bg-black/10 overflow-hidden flex flex-col justify-between">
+                    <div class="h-48 w-full overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Instagram and Facebook Ads Analytics" class="w-full h-full object-cover opacity-80 hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#161616] to-transparent"></div>
                     </div>
-                    <div class="p-8 flex-1 flex flex-col justify-between">
-                        <div>
-                            <h3 class="text-xl font-bold text-black dark:text-white light:text-gray-900 mb-3" data-translate="s1-title">Production Visuelle Éditoriale</h3>
-                            <p class="text-gray-500 dark:text-gray-400 light:text-gray-600 text-sm leading-relaxed mb-6" data-translate="s1-desc">
-                                Nous nous déplaçons directement dans votre magasin ou showroom avec du matériel cinématographique professionnel pour sublimer vos produits (canapés, mobilier, espaces) à travers des Reels captivants et des catalogues haut de gamme.
-                            </p>
-                        </div>
-                        <ul class="text-xs text-gray-500 space-y-2.5">
-                            <li><i class="fa-solid fa-check text-orange-500 mr-2"></i> <span data-translate="s1-f1">Scénarisation & mise en valeur des textures</span></li>
-                            <li><i class="fa-solid fa-check text-orange-500 mr-2"></i> <span data-translate="s1-f2">Post-production & étalonnage de luxe</span></li>
-                        </ul>
+                    <div class="p-6 pt-2">
+                        <div class="text-[#d4af37] text-xl mb-2"><i class="fab fa-instagram"></i> <i class="fab fa-facebook-f ml-2"></i></div>
+                        <h3 id="srv1Title" class="font-serif-luxury text-xl mb-2 font-semibold tracking-wide">Premium Meta Advertising</h3>
+                        <p id="srv1Desc" class="text-xs md:text-sm text-muted font-light leading-relaxed">
+                            We deploy ultra-targeted campaigns via Instagram and Facebook Ads. Our sole purpose is to constantly bring you premium new clients who possess exceptionally high purchasing power, looking for top-tier furniture.
+                        </p>
                     </div>
                 </div>
 
-                <div class="card-blur rounded-2xl overflow-hidden group hover:border-orange-500/30 transition duration-300 flex flex-col">
-                    <div class="h-56 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800" alt="Publicité Meta de Haute Précision" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#04070F] dark:from-[#04070F] light:from-white via-transparent to-transparent"></div>
+                <div class="border border-neutral-800/60 rounded-2xl bg-black/10 overflow-hidden flex flex-col justify-between">
+                    <div class="h-48 w-full overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80" alt="High Quality Furniture Photography" class="w-full h-full object-cover opacity-80 hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#161616] to-transparent"></div>
                     </div>
-                    <div class="p-8 flex-1 flex flex-col justify-between">
-                        <div>
-                            <h3 class="text-xl font-bold text-black dark:text-white light:text-gray-900 mb-3" data-translate="s2-title">Campagnes Meta Haute Performance</h3>
-                            <p class="text-gray-500 dark:text-gray-400 light:text-gray-600 text-sm leading-relaxed mb-6" data-translate="s2-desc">
-                                Des structures publicitaires de pointe ciblées chirurgicalement sur des clients à fort pouvoir d'achat prêts à investir dans leur intérieur ou à faire appel à vos services d'entreprise.
-                            </p>
-                        </div>
-                        <ul class="text-xs text-gray-500 space-y-2.5">
-                            <li><i class="fa-solid fa-check text-orange-500 mr-2"></i> <span data-translate="s2-f1">Ciblage démographique & intérêts premium</span></li>
-                            <li><i class="fa-solid fa-check text-orange-500 mr-2"></i> <span data-translate="s2-f2">Optimisation quotidienne du coût par prospect</span></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="card-blur rounded-2xl overflow-hidden group hover:border-orange-500/30 transition duration-300 flex flex-col">
-                    <div class="h-56 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800" alt="Tracking et Meta Pixel Data" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#04070F] dark:from-[#04070F] light:from-white via-transparent to-transparent"></div>
-                    </div>
-                    <div class="p-8 flex-1 flex flex-col justify-between">
-                        <div>
-                            <h3 class="text-xl font-bold text-black dark:text-white light:text-gray-900 mb-3" data-translate="s3-title">Système de Capture Automatisé</h3>
-                            <p class="text-gray-500 dark:text-gray-400 light:text-gray-600 text-sm leading-relaxed mb-6" data-translate="s3-desc">
-                                Configuration complète du Meta Business Suite, implémentation du Pixel, de l'API de conversion, et création de formulaires instantanés connectés pour recevoir vos leads en temps réel.
-                            </p>
-                        </div>
-                        <ul class="text-xs text-gray-500 space-y-2.5">
-                            <li><i class="fa-solid fa-check text-orange-500 mr-2"></i> <span data-translate="s3-f1">Tracking ultra-précis des clients chauds</span></li>
-                            <li><i class="fa-solid fa-check text-orange-500 mr-2"></i> <span data-translate="s3-f2">Tableaux de bord clairs et transparents</span></li>
-                        </ul>
+                    <div class="p-6 pt-2">
+                        <div class="text-[#d4af37] text-xl mb-2"><i class="fas fa-video"></i></div>
+                        <h3 id="srv2Title" class="font-serif-luxury text-xl mb-2 font-semibold tracking-wide">Bespoke In-Store Sessions</h3>
+                        <p id="srv2Desc" class="text-xs md:text-sm text-muted font-light leading-relaxed">
+                            We personally visit your showroom twice a month to capture your latest and newly arrived collections. Everything is engineered into high-end cinematic Reels and stunning professional pictures.
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <section class="py-24 px-6 card-blur border-y border-gray-800 dark:border-gray-800 light:border-gray-200 relative overflow-hidden text-center">
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-orange-500/5 blur-[100px] rounded-full pointer-events-none"></div>
-        <div class="max-w-3xl mx-auto relative z-10">
-            <h2 class="text-3xl md:text-5xl font-extrabold text-black dark:text-white light:text-gray-900 mb-6" data-translate="cta-title">Prêt à Dominer Votre Secteur ?</h2>
-            <p class="text-gray-500 dark:text-gray-400 light:text-gray-600 mb-10 max-w-xl mx-auto text-sm md:text-base" data-translate="cta-desc">Analysons ensemble vos tunnels d'acquisition actuels et bâtissons votre plan de croissance personnalisé.</p>
-            <a href="https://wa.me/212614884963" target="_blank" class="btn-gradient px-8 py-4 rounded-xl text-md font-bold text-black hover:scale-[1.02] transition inline-flex items-center gap-3 shadow-lg shadow-orange-500/20">
-                <i class="fa-brands fa-whatsapp text-xl"></i> <span data-translate="cta-btn">Lancer ma session stratégique</span>
-            </a>
+        <div id="sectionGallery" class="custom-card w-full rounded-3xl p-8 md:p-12 relative backdrop-blur-md hidden">
+            <div class="text-center mb-8">
+                <h2 id="galleryTitle" class="font-serif-luxury text-2xl md:text-4xl text-[#d4af37] tracking-wide mb-2">Showroom Vision & Examples</h2>
+                <p id="gallerySubtitle" class="text-xs md:text-sm text-muted italic">Note: These are baseline aesthetic examples of the quality we deliver during our bi-weekly store visits.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                <div class="h-64 rounded-xl overflow-hidden border border-neutral-800 relative group">
+                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Example Luxury Living Room">
+                </div>
+                <div class="h-64 rounded-xl overflow-hidden border border-neutral-800 relative group">
+                    <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Example Elite Bedding Design">
+                </div>
+                <div class="h-64 rounded-xl overflow-hidden border border-neutral-800 relative group">
+                    <img src="https://images.unsplash.com/photo-1617806118233-18e1db207f62?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Premium Sofa Shoot">
+                </div>
+                <div class="h-64 rounded-xl overflow-hidden border border-neutral-800 relative group">
+                    <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Showroom Lighting Setup">
+                </div>
+                <div class="h-64 rounded-xl overflow-hidden border border-neutral-800 relative group">
+                    <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Boutique Luxury Decor">
+                </div>
+                <div class="h-64 rounded-xl overflow-hidden border border-neutral-800 relative group">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Modernist Furniture Concept">
+                </div>
+            </div>
         </div>
-    </section>
 
-    <footer class="py-10 px-6 bg-[#03050A] dark:bg-[#03050A] light:bg-gray-100 text-sm text-gray-500 border-t border-gray-900 dark:border-gray-900 light:border-gray-200">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="font-bold tracking-wide text-gray-500 dark:text-gray-400 light:text-gray-700">
-                &copy; 2026 <span class="text-orange-500">AFRIMEDIA BAYER</span>. Corporate Growth.
-            </div>
-            <div class="flex flex-col sm:flex-row gap-4 sm:gap-8 text-xs text-center md:text-left">
-                <a href="mailto:buyerafrimedia@gmail.com" class="text-gray-500 hover:text-orange-500 transition"><i class="fa-solid fa-envelope text-orange-500/60 mr-1"></i> buyerafrimedia@gmail.com</a>
-                <a href="https://wa.me/212614884963" target="_blank" class="text-gray-500 hover:text-orange-500 transition"><i class="fa-solid fa-phone text-orange-500/60 mr-1"></i> +212 614-884963</a>
-            </div>
+        <div id="bookingForm" class="custom-card w-full max-w-xl rounded-3xl p-8 md:p-10 relative backdrop-blur-md mx-auto">
+            <h2 id="formTitle" class="font-serif-luxury text-2xl md:text-3xl text-center text-[#d4af37] mb-6 tracking-wide">Request Private Consultation</h2>
+            
+            <form onsubmit="sendToWhatsApp(event)" class="space-y-4">
+                <div>
+                    <label id="lblName" class="block text-xs uppercase tracking-widest text-[#d4af37] mb-2 font-medium">Full Name</label>
+                    <input type="text" id="clientName" required class="input-field w-full px-4 py-3 rounded-xl text-sm outline-none focus:border-[#d4af37] transition-all duration-300">
+                </div>
+                <div>
+                    <label id="lblBrand" class="block text-xs uppercase tracking-widest text-[#d4af37] mb-2 font-medium">Brand Name / Showroom</label>
+                    <input type="text" id="clientBrand" required class="input-field w-full px-4 py-3 rounded-xl text-sm outline-none focus:border-[#d4af37] transition-all duration-300">
+                </div>
+                <div>
+                    <label id="lblPhone" class="block text-xs uppercase tracking-widest text-[#d4af37] mb-2 font-medium">WhatsApp Number</label>
+                    <input type="tel" id="clientPhone" placeholder="+212 600-000000" required class="input-field w-full px-4 py-3 rounded-xl text-sm outline-none focus:border-[#d4af37] transition-all duration-300">
+                </div>
+                <div>
+                    <label id="lblCity" class="block text-xs uppercase tracking-widest text-[#d4af37] mb-2 font-medium">City / Location</label>
+                    <input type="text" id="clientCity" required class="input-field w-full px-4 py-3 rounded-xl text-sm outline-none focus:border-[#d4af37] transition-all duration-300">
+                </div>
+                
+                <div class="pt-4 text-center">
+                    <button type="submit" id="submitBtn" class="w-full bg-gradient-to-r from-[#d4af37] to-[#aa841a] text-black font-semibold tracking-[0.2em] text-xs uppercase py-4 rounded-full shadow-xl hover:shadow-[0_10px_30px_rgba(212,175,55,0.35)] transition-all duration-300 transform hover:-translate-y-0.5">
+                        Send Application Via WhatsApp
+                    </button>
+                </div>
+            </form>
         </div>
+
+    </main>
+
+    <footer class="w-full text-center py-6 text-[10px] text-neutral-500 tracking-[0.3em] font-light">
+        &copy; 2026 PRESTIGE MEDIA. ALL RIGHTS RESERVED.
     </footer>
 
     <script>
-        const translations = {
-            fr: {
-                "nav-cta": "Contact Pro",
-                "hero-badge": "MARKETING DE PERFORMANCE & PRODUCTION IMMERSIVE",
-                "hero-title1": "Nous Transformons vos Showrooms & Boutiques en",
-                "hero-title2": "Leaders du Marché.",
-                "hero-desc": "Ne gaspillez plus votre budget dans des campagnes invisibles. Afrimedia Bayer déploie une infrastructure d'acquisition sur-mesure combinant création de contenu visuel ultra-premium (Mobilier, Déco, Showrooms) et publicités ciblées à fort retour sur investissement.",
-                "hero-btn1": "Réserver un Call Stratégique",
-                "services-title1": "Notre Écosystème de",
-                "services-title2": "Croissance",
-                "services-subtitle": "Une stratégie d'élite conçue exclusivement pour dominer votre secteur au niveau local.",
-                "s1-title": "Production Visuelle Éditoriale",
-                "s1-desc": "Nous nous déplaçons directement dans votre magasin ou showroom avec du matériel cinématographique professionnel pour sublimer vos produits (canapés, mobilier, espaces) à travers des Reels captivants et des catalogues haut de gamme.",
-                "s1-f1": "Scénarisation & mise en valeur des textures",
-                "s1-f2": "Post-production & étalonnage de luxe",
-                "s2-title": "Campagnes Meta Haute Performance",
-                "s2-desc": "Des structures publicitaires de pointe ciblées chirurgicalement sur des clients à fort pouvoir d'achat prêts à investir dans leur intérieur ou à faire appel à vos services d'entreprise.",
-                "s2-f1": "Ciblage démographique & intérêts premium",
-                "s2-f2": "Optimisation quotidienne du coût par prospect",
-                "s3-title": "Système de Capture Automatisé",
-                "s3-desc": "Configuration complète du Meta Business Suite, implémentation du Pixel, de l'API de conversion, et création de formulaires instantanés connectés pour recevoir vos leads en temps réel.",
-                "s3-f1": "Tracking ultra-précis des clients chauds",
-                "s3-f2": "Tableaux de bord clairs et transparents",
-                "cta-title": "Prêt à Dominer Votre Secteur ?",
-                "cta-desc": "Analysons ensemble vos tunnels d'acquisition actuels et bâtissons votre plan de croissance personnalisé.",
-                "cta-btn": "Lancer ma session stratégique"
-            },
+        const dictionary = {
             en: {
-                "nav-cta": "Let's Talk Business",
-                "hero-badge": "PERFORMANCE MARKETING & IMMERSIVE PRODUCTION",
-                "hero-title1": "We Transform Your Showrooms & Stores Into",
-                "hero-title2": "Market Leaders.",
-                "hero-desc": "Stop wasting budget on invisible campaigns. Afrimedia Bayer deploys a tailored acquisition infrastructure combining ultra-premium content creation (Furniture, Decor, Showrooms) with high-ROI targeted paid ads.",
-                "hero-btn1": "Book a Strategy Call",
-                "services-title1": "Our Core",
-                "services-title2": "Growth Ecosystem",
-                "services-subtitle": "An elite blueprint engineered exclusively to dominate your local industry.",
-                "s1-title": "Editorial Visual Production",
-                "s1-desc": "We bring professional cinema gear directly to your store or showroom to elevate your products (sofas, furniture, premium setups) into highly engaging Reels and luxury digital lookbooks.",
-                "s1-f1": "Scriptwriting & aesthetic texture highlighting",
-                "s1-f2": "High-end post-production & cinematic grading",
-                "s2-title": "High-Performance Meta Campaigns",
-                "s2-desc": "Advanced advertising campaigns surgically targeted at high-net-worth individuals and premium buyers ready to invest in high-ticket assets and professional services.",
-                "s2-f1": "Advanced demographics & luxury interest targeting",
-                "s2-f2": "Daily budget tuning and lead-cost optimization",
-                "s3-title": "Automated Capture System",
-                "s3-desc": "Full deployment of Meta Business Suite, Pixel tracking, Conversions API, and high-converting instant forms connected directly to your pipeline.",
-                "s3-f1": "Deep tracking of high-intent buyers",
-                "s3-f2": "100% clear and transparent data reporting",
-                "cta-title": "Ready to Dominate Your Industry?",
-                "cta-desc": "Let's audit your sales funnels together and build your custom corporate growth blueprint.",
-                "cta-btn": "Claim My Strategy Session"
+                sub: "High-End Media Buying & Premium Creatives",
+                title: "Elevate Your Luxury Brand Experience",
+                desc: "We design premium advertising architecture exclusively for high-end furniture showrooms and boutique creators. We turn discretion and prestige into predictable market dominance.",
+                tabServices: "Our Services",
+                tabGallery: "Photography Showcase",
+                servicesTitle: "Our Bespoke Services",
+                srv1Title: "Premium Meta Advertising",
+                srv1Desc: "We deploy ultra-targeted campaigns via Instagram and Facebook Ads. Our sole purpose is to constantly bring you premium new clients who possess exceptionally high purchasing power, looking for top-tier furniture.",
+                srv2Title: "Bespoke In-Store Sessions",
+                srv2Desc: "We personally visit your showroom twice a month to capture your latest and newly arrived collections. Everything is engineered into high-end cinematic Reels and stunning professional pictures.",
+                galleryTitle: "Showroom Vision & Examples",
+                gallerySubtitle: "Note: These are baseline aesthetic examples of the quality we deliver during our bi-weekly store visits.",
+                formTitle: "Request Private Consultation",
+                lblName: "Full Name",
+                lblBrand: "Brand Name / Showroom",
+                lblPhone: "WhatsApp Number",
+                lblCity: "City / Location",
+                submitBtn: "Send Application Via WhatsApp"
             },
-            es: {
-                "nav-cta": "Contacto Pro",
-                "hero-badge": "MARKETING DE RENDIMIENTO Y PRODUCCIÓN INMERSIVA",
-                "hero-title1": "Transformamos sus Showrooms y Tiendas en",
-                "hero-title2": "Líderes del Mercado.",
-                "hero-desc": "Deje de perder presupuesto en campañas invisibles. Afrimedia Bayer despliega una infraestructura de captación a medida que combina la creación de contenidos visuales ultra-premium (Mobiliario, Decoración, Showrooms) con anuncios segmentados de alto retorno de inversión.",
-                "hero-btn1": "Reservar una Llamada Estratégica",
-                "services-title1": "Nuestro Ecosistema de",
-                "services-title2": "Crecimiento",
-                "services-subtitle": "Una estrategia de élite diseñada exclusivamente para dominar su sector a nivel local.",
-                "s1-title": "Producción Visual Editorial",
-                "s1-desc": "Nos desplazamos directamente a su tienda o showroom con equipos cinematográficos profesionales para realzar sus productos (sofás, muebles, espacios) a través de Reels cautivadores y catálogos de alta gama.",
-                "s1-f1": "Guionización y puesta en valor de las texturas",
-                "s1-f2": "Postproducción y etalonaje de lujo",
-                "s2-title": "Campañas Meta de Alto Rendimiento",
-                "s2-desc": "Estructuras publicitarias de vanguardia dirigidas quirúrgicamente a clientes con alto poder adquisitivo listos para invertir en sus hogares o contratar sus servicios empresariales.",
-                "s2-f1": "Segmentación demográfica e intereses premium",
-                "s2-f2": "Optimización diaria del coste por cliente potencial",
-                "s3-title": "Sistema de Captura Automatizado",
-                "s3-desc": "Configuración completa de Meta Business Suite, implementación de Pixel, API de Conversiones y creación de formularios instantáneos conectados para recibir sus leads en tiempo real.",
-                "s3-f1": "Seguimiento ultrapreciso de clientes potenciales calientes",
-                "s3-f2": "Paneles de datos claros y transparentes",
-                "cta-title": "¿Listo para Dominar su Sector?",
-                "cta-desc": "Analicemos juntos sus embudos de adquisición actuales y construyamos su plan de crecimiento corporativo personalizado.",
-                "cta-btn": "Iniciar mi sesión estratégica"
+            fr: {
+                sub: "Acquisition Média & Créations Haut de Gamme",
+                title: "Sublimez l'Expérience de Votre Marque",
+                desc: "Nous concevons des architectures publicitaires premium exclusivement pour les showrooms de mobilier de luxe. Transformez le prestige en domination absolue du marché.",
+                tabServices: "Nos Services",
+                tabGallery: "Galerie Photo",
+                servicesTitle: "Nos Services Sur Mesure",
+                srv1Title: "Publicité Meta Premium",
+                srv1Desc: "Nous déployons des campagnes ultra-ciblées sur Instagram et Facebook Ads. Notre objectif est de vous apporter de nouveaux clients avec un pouvoir d'achat très élevé.",
+                srv2Title: "Sessions Privées en Magasin",
+                srv2Desc: "Nous visitons votre showroom deux fois par mois pour capturer vos nouvelles collections. Le tout est transformé en Reels cinématographiques et photos pro.",
+                galleryTitle: "Vision du Showroom & Exemples",
+                gallerySubtitle: "Note : Ce sont des exemples de la qualité esthétique que nous livrons lors de nos visites bimensuelles.",
+                formTitle: "Demander une Consultation Privée",
+                lblName: "Nom Complet",
+                lblBrand: "Nom du Showroom / Marque",
+                lblPhone: "Numéro de WhatsApp",
+                lblCity: "Ville / Emplacement",
+                submitBtn: "Envoyer ma Demande via WhatsApp"
             },
             ar: {
-                "nav-cta": "تواصل معنا",
-                "hero-badge": "تسويق الأداء العالي وصناعة المحتوى الإبداعي",
-                "hero-title1": "نحن نحول صالات العرض والمتاجر الكبرى إلى",
-                "hero-title2": "قادة السوق المحلي.",
-                "hero-desc": "توقف عن إهدار الميزانية الإعلانية دون نتائج. إفريميديا باير تطلق لك بنية تحتية مخصصة تجمع بين إنتاج المحتوى المرئي الفاخر (الأثاث، الديكور، صالات العرض) والحملات الإعلانية الدقيقة ذات العائد المرتفع.",
-                "hero-btn1": "احجز مكالمة استراتيجية الآن",
-                "services-title1": "منظومة النمو",
-                "services-title2": "الخاصة بنا",
-                "services-subtitle": "استراتيجية نخبوية مصممة خصيصاً للسيطرة على مجالك التجاري واستقطاب كبار العملاء.",
-                "s1-title": "الإنتاج المرئي والسينمائي للمنتجات",
-                "s1-desc": "ننتقل مباشرة إلى صالة العرض أو متجرك بمعدات سينمائية احترافية لإبراز فخامة منتجاتك (أثاث، صالونات، ديكورات) عبر مقاطع Reels كتالوجات رقمية عالية الجاذبية.",
-                "s1-f1": "كتابة السيناريو وإبراز تفاصيل وجودة المنتجات",
-                "s1-f2": "المونتاج الاحترافي وتصحيح الألوان الفاخر",
-                "s2-title": "حملات إعلانية عالية الأداء على Meta",
-                "s2-desc": "هيكلة حملات إعلانية متطورة تستهدف بدقة شديدة الأفراد ذوي القدرة الشرائية العالية والمهتمين فعلياً بالاستثمار في منازلهم ومشاريعهم.",
-                "s2-f1": "استهداف ديموغرافي متقدم واهتمامات النخبة",
-                "s2-f2": "تحسين يومي مستمر لخفض تكلفة العميل المحتمل",
-                "s3-title": "منظومة تتبع وتلقي الطلبات المؤتمتة",
-                "s3-desc": "إعداد متكامل لـ Meta Business Suite، وربط الـ Pixel و Conversion API مع بناء استمارات فورية لتلقي بيانات العملاء بدقة وفي الوقت الفعلي.",
-                "s3-f1": "تتبع دقيق ومتقدم للعملاء المهتمين بالشراء",
-                "s3-f2": "لوحات تحكم وتقارير واضحة وشفافة تماماً",
-                "cta-title": "هل أنت مستعد لقيادة مجالك التجاري؟",
-                "cta-desc": "دعنا نحلل قنواتك التسويقية الحالية ونصمم لك خطة مخصصة لجلب العملاء الكبار هذا الشهر.",
-                "cta-btn": "ابدأ جلستك الاستراتيجية الآن"
+                sub: "إعلانات حصرية وصناعة محتوى فاخر",
+                title: "ارتقِ ببرستيج علامتك التجارية الفاخرة",
+                desc: "نصمم إستراتيجيات إعلانية متكاملة وبأعلى جودة، مخصصة حصرياً لمعارض الأثاث الفاخر والمشاريع الراقية. نحافظ على فخامة اسمك ونضمن لك صدارة السوق.",
+                tabServices: "خدماتنا الحصرية",
+                tabGallery: "معرض الصور الاحترافي",
+                servicesTitle: "خدماتنا المخصصة",
+                srv1Title: "إعلانات Meta الاحترافية (إنستغرام وفيس بوك)",
+                srv1Desc: "نطلق حملات إعلانية دقيقة ومستهدفة عبر Instagram و Facebook Ads. هدفنا الأساسي هو جلب زبائن جدد باستمرار لمعرضك، من الفئات الراقية التي تمتلك قدرة شرائية عالية جداً ومستعدة للدفع مقابل الفخامة والتميز.",
+                srv2Title: "جلسات تصوير ميدانية بالمحل (2 مرات في الشهر)",
+                srv2Desc: "كنجيو عندك للمحل ديالك جوج (2) مرات في الشهر باش نصورو الأثاث والسلعة الجديدة لي وصلاتك. كلشي كيتصاوب على شكل الفيديوهات الحصرية والـ Reels والمقاطع السينمائية بجودة خيالية تليق بالبراند ديالك.",
+                galleryTitle: "أمثلة حية لجودة التصوير",
+                gallerySubtitle: "ملاحظة: هذه أمثلة حية توضح جودة وفخامة التصوير السينمائي الذي نعمل عليه خلال زياراتنا الدورية للمحل.",
+                formTitle: "طلب استشارة خاصة للمشروع",
+                lblName: "الاسم الكامل",
+                lblBrand: "اسم المحل / العلامة التجارية",
+                lblPhone: "رقم الواتساب",
+                lblCity: "المدينة / الموقع",
+                submitBtn: "إرسال الطلب عبر الواتساب"
+            },
+            es: {
+                sub: "Adquisición de Medios y Creatividad Premium",
+                title: "Eleve la Experiencia de su Marca de Lujo",
+                desc: "Diseñamos arquitectura publicitaria exclusiva para salones de muebles de alta gama y creadores boutique. Convertimos el prestigio en un dominio predecible del mercado.",
+                tabServices: "Nuestros Servicios",
+                tabGallery: "Galería de Fotos",
+                servicesTitle: "Nuestros Servicios Exclusivos",
+                srv1Title: "Publicidad Meta de Élite",
+                srv1Desc: "Campañas ultra-dirigidas en Instagram y Facebook Ads. Traemos constantemente nuevos clientes con un poder adquisitivo extremadamente alto buscando muebles de lujo.",
+                srv2Title: "Sesiones Mensuales en Tienda",
+                srv2Desc: "Visitamos su showroom dos veces al mes para capturar sus nuevas colecciones en Reels cinematográficos de alta gama y fotos profesionales.",
+                galleryTitle: "Visión de Showroom y Ejemplos",
+                gallerySubtitle: "Nota: Estos son ejemplos estéticos de la calidad que entregamos en nuestras visitas quincenales.",
+                formTitle: "Solicitar Consulta Privada",
+                lblName: "Nombre Completo",
+                lblBrand: "Nombre de la Marca / Showroom",
+                lblPhone: "Número de WhatsApp",
+                lblCity: "Ciudad / Ubicación",
+                submitBtn: "Enviar Solicitud por WhatsApp"
             }
         };
 
-        function changeLanguage(lang) {
-            document.documentElement.lang = lang;
-            document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
-            
-            const elements = document.querySelectorAll('[data-translate]');
-            elements.forEach(el => {
-                const key = el.getAttribute('data-translate');
-                if (translations[lang] && translations[lang][key]) {
-                    el.textContent = translations[lang][key];
-                }
-            });
-        }
+        const body = document.body;
+        let currentLang = 'en';
 
-        // Dark/Light Mode Toggle Function
-        function toggleTheme() {
-            const body = document.body;
-            const html = document.documentElement;
-            const themeIcon = document.getElementById('themeIcon');
+        function changeLang(lang) {
+            currentLang = lang;
+            document.getElementById('subTitle').textContent = dictionary[lang].sub;
+            document.getElementById('mainTitle').textContent = dictionary[lang].title;
+            document.getElementById('description').textContent = dictionary[lang].desc;
             
-            if (html.classList.contains('dark')) {
-                html.classList.remove('dark');
-                html.classList.add('light');
-                themeIcon.classList.remove('fa-sun');
-                themeIcon.classList.add('fa-moon');
+            document.getElementById('tabServicesText').textContent = dictionary[lang].tabServices;
+            document.getElementById('tabGalleryText').textContent = dictionary[lang].tabGallery;
+
+            document.getElementById('servicesTitle').textContent = dictionary[lang].servicesTitle;
+            document.getElementById('srv1Title').textContent = dictionary[lang].srv1Title;
+            document.getElementById('srv1Desc').textContent = dictionary[lang].srv1Desc;
+            document.getElementById('srv2Title').textContent = dictionary[lang].srv2Title;
+            document.getElementById('srv2Desc').textContent = dictionary[lang].srv2Desc;
+            
+            document.getElementById('galleryTitle').textContent = dictionary[lang].galleryTitle;
+            document.getElementById('gallerySubtitle').textContent = dictionary[lang].gallerySubtitle;
+
+            document.getElementById('formTitle').textContent = dictionary[lang].formTitle;
+            document.getElementById('lblName').textContent = dictionary[lang].lblName;
+            document.getElementById('lblBrand').textContent = dictionary[lang].lblBrand;
+            document.getElementById('lblPhone').textContent = dictionary[lang].lblPhone;
+            document.getElementById('lblCity').textContent = dictionary[lang].lblCity;
+            document.getElementById('submitBtn').textContent = dictionary[lang].submitBtn;
+
+            if (lang === 'ar') {
+                body.dir = 'rtl';
+                document.getElementById('mainTitle').classList.add('leading-normal');
             } else {
-                html.classList.remove('light');
-                html.classList.add('dark');
-                themeIcon.classList.remove('fa-moon');
-                themeIcon.classList.add('fa-sun');
+                body.dir = 'ltr';
+                document.getElementById('mainTitle').classList.remove('leading-normal');
             }
         }
 
-        // Lofi Music Toggle Function
-        function toggleMusic() {
-            const audio = document.getElementById('lofiAudio');
-            const musicIcon = document.getElementById('musicIcon');
-            
-            if (audio.paused) {
-                audio.play();
-                audio.volume = 0.25; // Professional low ambient level
-                musicIcon.classList.remove('fa-volume-xmark');
-                musicIcon.classList.add('fa-volume-high');
-                musicIcon.classList.add('animate-pulse');
+        function selectInitialLang(lang) {
+            changeLang(lang);
+            const overlay = document.getElementById('languageOverlay');
+            overlay.classList.add('fade-out');
+            setTimeout(() => { overlay.style.display = 'none'; }, 500);
+
+            const bgMusic = document.getElementById('bgMusic');
+            bgMusic.volume = 0.20;
+            bgMusic.play().then(() => {
+                document.getElementById('musicIcon').className = 'fas fa-pause text-[#d4af37] animate-pulse';
+            }).catch(e => console.log("Interaction required"));
+        }
+
+        // دالة التبديل بين الواجهات (Tabs System) بلا ما يتشارblockا السيت
+        function switchTab(tabName) {
+            const btnServices = document.getElementById('btnTabServices');
+            const btnGallery = document.getElementById('btnTabGallery');
+            const secServices = document.getElementById('sectionServices');
+            const secGallery = document.getElementById('sectionGallery');
+
+            if(tabName === 'services') {
+                btnServices.classList.add('active');
+                btnGallery.classList.remove('active');
+                secServices.classList.remove('hidden');
+                secGallery.classList.add('hidden');
             } else {
-                audio.pause();
-                musicIcon.classList.remove('fa-volume-high');
-                musicIcon.classList.remove('animate-pulse');
-                musicIcon.classList.add('fa-volume-xmark');
+                btnGallery.classList.add('active');
+                btnServices.classList.remove('active');
+                secGallery.classList.remove('hidden');
+                secServices.classList.add('hidden');
             }
+        }
+
+        // تحويل الثيم
+        const themeBtn = document.getElementById('themeBtn');
+        const themeIcon = document.getElementById('themeIcon');
+        themeBtn.addEventListener('click', () => {
+            if (body.classList.contains('bg-dark-mode')) {
+                body.classList.remove('bg-dark-mode');
+                body.classList.add('bg-light-mode');
+                themeIcon.className = 'fas fa-moon';
+            } else {
+                body.classList.remove('bg-light-mode');
+                body.classList.add('bg-dark-mode');
+                themeIcon.className = 'fas fa-sun';
+            }
+        });
+
+        // تشغيل الموسيقى الخلفية
+        const musicBtn = document.getElementById('musicBtn');
+        const musicIcon = document.getElementById('musicIcon');
+        const bgMusic = document.getElementById('bgMusic');
+        musicBtn.addEventListener('click', () => {
+            if (bgMusic.paused) {
+                bgMusic.play();
+                musicIcon.className = 'fas fa-pause text-[#d4af37] animate-pulse';
+            } else {
+                bgMusic.pause();
+                musicIcon.className = 'fas fa-music text-[#d4af37]';
+            }
+        });
+
+        // إرسال البيانات المباشر والمنظم للواتساب
+        function sendToWhatsApp(event) {
+            event.preventDefault();
+            const name = document.getElementById('clientName').value;
+            const brand = document.getElementById('clientBrand').value;
+            const phone = document.getElementById('clientPhone').value;
+            const city = document.getElementById('clientCity').value;
+            
+            const myWhatsAppNumber = "212614884963";
+            
+            const message = `✨ *New Luxury Client Lead* ✨\n\n` +
+                            `👤 *Full Name:* ${name}\n` +
+                            `🏢 *Brand / Showroom:* ${brand}\n` +
+                            `📞 *WhatsApp Number:* ${phone}\n` +
+                            `📍 *City / Location:* ${city}\n\n` +
+                            `🎯 *Target Campaign:* Instagram & Facebook Ads (High Purchasing Power Target)\n` +
+                            `📸 *Content Structure:* 2 In-Store Shoots per month / High-End Quality Reels & Photos.`;
+            
+            window.open(`https://wa.me/${myWhatsAppNumber}?text=${encodeURIComponent(message)}`, '_blank');
         }
     </script>
 </body>
