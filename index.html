@@ -17,11 +17,12 @@
             font-family: 'Cormorant Garamond', serif;
         }
         
+        /* تأثيرات التحول على الكروت والكتابة */
         .custom-card, body, h1, p, span {
             transition: all 0.5s ease;
         }
 
-        /* 1. Dark Mode (الأساسي) */
+        /* 1. المود الغامق الأساسي (Dark Mode) */
         .bg-dark-mode {
             background: linear-gradient(135deg, #0a0a0a 0%, #161616 100%);
             color: #f3f4f6;
@@ -35,7 +36,7 @@
             color: rgba(243, 244, 246, 0.7);
         }
 
-        /* 2. Light Mode */
+        /* 2. المود المضيء (Light Mode) - دبا الباكgراوند كاملة كاترجع بيضا ناصعة وراقية */
         .bg-light-mode {
             background: linear-gradient(135deg, #f9f9f9 0%, #eddcd2 100%);
             color: #1a1a1a;
@@ -48,12 +49,13 @@
         .bg-light-mode .text-muted {
             color: #4a4a4a;
         }
+        .bg-light-mode h1 {
+            color: #111111;
+        }
         
-        /* انيميشن باش تختفي واجهة اللغات بسلاسة */
-        .fade-out {
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.5s ease;
+        /* الصور كتبقى محمية وطبيعية 100% ومكايقيسهاش المود */
+        img {
+            transition: transform 0.3s ease;
         }
     </style>
 </head>
@@ -62,23 +64,6 @@
     <audio id="bgMusic" loop>
         <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
     </audio>
-
-    <div id="languageOverlay" class="fixed inset-0 bg-[#0a0a0a] z- flex items-center justify-center p-4 transition-all duration-500">
-        <div class="max-w-md w-full border border-[#d4af37]/30 bg-[#121212] rounded-3xl p-8 text-center shadow-2xl relative">
-            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-[2px] bg-gradient-to-r from-transparent via-[#d4af37] to-transparent"></div>
-            
-            <span class="font-serif-luxury text-xl tracking-[0.30em] text-[#d4af37] font-semibold block mb-2">PRESTIGE</span>
-            <h2 class="font-serif-luxury text-2xl text-neutral-200 mb-8 font-light">Select Your Language</h2>
-            
-            <div class="grid grid-cols-1 gap-4">
-                <button onclick="selectInitialLang('en')" class="w-full py-3 border border-neutral-800 rounded-xl text-neutral-300 hover:border-[#d4af37] hover:text-[#d4af37] transition-all duration-300 text-sm tracking-widest font-medium">ENGLISH</button>
-                <button onclick="selectInitialLang('fr')" class="w-full py-3 border border-neutral-800 rounded-xl text-neutral-300 hover:border-[#d4af37] hover:text-[#d4af37] transition-all duration-300 text-sm tracking-widest font-medium">FRANÇAIS</button>
-                <button onclick="selectInitialLang('ar')" class="w-full py-3 border border-neutral-800 rounded-xl text-neutral-300 hover:border-[#d4af37] hover:text-[#d4af37] transition-all duration-300 text-sm tracking-widest font-medium">العربية</button>
-                <button onclick="selectInitialLang('es')" class="w-full py-3 border border-neutral-800 rounded-xl text-neutral-300 hover:border-[#d4af37] hover:text-[#d4af37] transition-all duration-300 text-sm tracking-widest font-medium">ESPAÑOL</button>
-            </div>
-        </div>
-    </div>
-
 
     <header class="w-full max-w-6xl mx-auto px-6 py-6 flex justify-between items-center z-50">
         <div class="flex items-center space-x-2">
@@ -133,7 +118,45 @@
     </footer>
 
     <script>
-        // --- 1. الـ Dictionary ديال اللغات ---
+        // --- 1. Theme Configuration (تغيير الخلفية بالكامل) ---
+        const themeBtn = document.getElementById('themeBtn');
+        const themeIcon = document.getElementById('themeIcon');
+        const body = document.body;
+
+        themeBtn.addEventListener('click', () => {
+            if (body.classList.contains('bg-dark-mode')) {
+                body.classList.remove('bg-dark-mode');
+                body.classList.add('bg-light-mode');
+                themeIcon.className = 'fas fa-moon'; // الأيقونة تتبدل لقمر ف المود الأبيض
+            } else {
+                body.classList.remove('bg-light-mode');
+                body.classList.add('bg-dark-mode');
+                themeIcon.className = 'fas fa-sun'; // الأيقونة ترجع شمس ف المود الكحل
+            }
+        });
+
+        // --- 2. Background Audio Track Automation ---
+        const musicBtn = document.getElementById('musicBtn');
+        const musicIcon = document.getElementById('musicIcon');
+        const bgMusic = document.getElementById('bgMusic');
+        let audioPlaying = false;
+        
+        bgMusic.volume = 0.25;
+
+        musicBtn.addEventListener('click', () => {
+            if (!audioPlaying) {
+                bgMusic.play().then(() => {
+                    audioPlaying = true;
+                    musicIcon.className = 'fas fa-pause text-[#d4af37] animate-pulse';
+                }).catch(error => console.log("Audio presentation blocked", error));
+            } else {
+                bgMusic.pause();
+                audioPlaying = false;
+                musicIcon.className = 'fas fa-music text-[#d4af37]';
+            }
+        });
+
+        // --- 3. Professional Localization Dictionary ---
         const dictionary = {
             en: {
                 sub: "High-End Media Buying & Creatives",
@@ -161,9 +184,6 @@
             }
         };
 
-        const body = document.body;
-
-        // دالة تغيير اللغة وسط السيت
         function changeLang(lang) {
             document.getElementById('subTitle').textContent = dictionary[lang].sub;
             document.getElementById('mainTitle').textContent = dictionary[lang].title;
@@ -178,59 +198,6 @@
                 document.getElementById('mainTitle').classList.remove('leading-normal');
             }
         }
-
-        // --- 2. سكريبت واجهة اختيار اللغة الأولى ---
-        function selectInitialLang(lang) {
-            // كايطبق اللغة اللي تختارغات
-            changeLang(lang);
-            
-            // كايحيد الواجهة بـ انيميشن fade out زوينة
-            const overlay = document.getElementById('languageOverlay');
-            overlay.classList.add('fade-out');
-            
-            // كايحذفها نهائيا من الشاشة مورا 500ms باش ما تبقاش محبوسة
-            setTimeout(() => {
-                overlay.style.display = 'none';
-            }, 500);
-
-            // البونيس: المزيكة تخدم أوتوماتيك غير يختار اللغة (إيلا كان البراوزر كايسمح)
-            const bgMusic = document.getElementById('bgMusic');
-            bgMusic.volume = 0.25;
-            bgMusic.play().then(() => {
-                document.getElementById('musicIcon').className = 'fas fa-pause text-[#d4af37] animate-pulse';
-            }).catch(e => console.log("Audio waiting for toggle"));
-        }
-
-        // --- 3. الـ Theme التبديل (Dark/Light) ---
-        const themeBtn = document.getElementById('themeBtn');
-        const themeIcon = document.getElementById('themeIcon');
-
-        themeBtn.addEventListener('click', () => {
-            if (body.classList.contains('bg-dark-mode')) {
-                body.classList.remove('bg-dark-mode');
-                body.classList.add('bg-light-mode');
-                themeIcon.className = 'fas fa-moon';
-            } else {
-                body.classList.remove('bg-light-mode');
-                body.classList.add('bg-dark-mode');
-                themeIcon.className = 'fas fa-sun';
-            }
-        });
-
-        // --- 4. التحكم ف هاديك المزيكة يدوياً ---
-        const musicBtn = document.getElementById('musicBtn');
-        const musicIcon = document.getElementById('musicIcon');
-        const bgMusic = document.getElementById('bgMusic');
-        
-        musicBtn.addEventListener('click', () => {
-            if (bgMusic.paused) {
-                bgMusic.play();
-                musicIcon.className = 'fas fa-pause text-[#d4af37] animate-pulse';
-            } else {
-                bgMusic.pause();
-                musicIcon.className = 'fas fa-music text-[#d4af37]';
-            }
-        });
     </script>
 </body>
 </html>
