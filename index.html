@@ -6,7 +6,7 @@
     <title>Prestige Media - Premium Acquisition</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2 family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
         body {
@@ -182,7 +182,6 @@
     </footer>
 
     <script>
-        // --- 1. الـ Dictionary الكامل مترجم بـ 4 لغات لجميع العناصر ---
         const dictionary = {
             en: {
                 sub: "High-End Media Buying & Premium Creatives",
@@ -248,7 +247,6 @@
 
         const body = document.body;
 
-        // دالة تغيير اللغة في الصفحة
         function changeLang(lang) {
             document.getElementById('subTitle').textContent = dictionary[lang].sub;
             document.getElementById('mainTitle').textContent = dictionary[lang].title;
@@ -275,7 +273,6 @@
             }
         }
 
-        // سكريبت واجهة اختيار اللغة عند الدخول الأول
         function selectInitialLang(lang) {
             changeLang(lang);
             
@@ -286,7 +283,6 @@
                 overlay.style.display = 'none';
             }, 500);
 
-            // تشغيل الموسيقى تلقائياً إن سمح المتصفح
             const bgMusic = document.getElementById('bgMusic');
             bgMusic.volume = 0.20;
             bgMusic.play().then(() => {
@@ -294,7 +290,6 @@
             }).catch(e => console.log("Audio waiting for user interaction"));
         }
 
-        // التبديل بين الـ Dark والـ Light Mode
         const themeBtn = document.getElementById('themeBtn');
         const themeIcon = document.getElementById('themeIcon');
 
@@ -310,7 +305,6 @@
             }
         });
 
-        // التحكم في تشغيل وإيقاف الموسيقى
         const musicBtn = document.getElementById('musicBtn');
         const musicIcon = document.getElementById('musicIcon');
         const bgMusic = document.getElementById('bgMusic');
@@ -325,32 +319,24 @@
             }
         });
 
-        // --- 2. دالة إرسال البيانات المكتوبة في الفورم إلى الواتساب ---
         function sendToWhatsApp(event) {
-            event.preventDefault(); // منع الصفحة من التحديث
+            event.preventDefault();
             
-            // جلب القيم من الإدخالات
             const name = document.getElementById('clientName').value;
             const city = document.getElementById('clientCity').value;
             const type = document.getElementById('clientType').value;
             
-            // رقم الهاتف الخاص بك
             const phoneNumber = "212614884963";
             
-            // صياغة الرسالة بأسلوب منظم وفخم
             const message = `✨ *New Premium Showroom Application* ✨\n\n` +
                             `👤 *Name / Showroom:* ${name}\n` +
                             `📍 *City / Location:* ${city}\n` +
                             `🛋️ *Furniture Style:* ${type}\n\n` +
-                            `طلب حجز استشارة بخصوص عرض الإعلانات والتصوير الاحترافي الدائم.`;
+                            `طلب حجز استشارة بخصوص عرض الإعلانات والتصوير الاحترافي الدائم (2 مرات في الشهر).`;
             
-            // ترميز النص ليتناسب مع الرابط الالكتروني
             const encodedMessage = encodeURIComponent(message);
-            
-            // رابط الواتساب المباشر
             const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
             
-            // فتح الرابط في نافذة جديدة لإرسال الرسالة فوراً
             window.open(whatsappUrl, '_blank');
         }
     </script>
