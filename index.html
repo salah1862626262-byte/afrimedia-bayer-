@@ -6,7 +6,7 @@
     <title>Prestige Media - Premium Acquisition</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2 family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
         body {
@@ -182,6 +182,7 @@
     </footer>
 
     <script>
+        // الـ Dictionary بـ 4 لغات لضمان دقة عرض واجهة المستخدم بشكل احترافي وفخم
         const dictionary = {
             en: {
                 sub: "High-End Media Buying & Premium Creatives",
@@ -218,7 +219,7 @@
                 title: "ارتقِ ببرستيج علامتك التجارية الفاخرة",
                 desc: "نصمم إستراتيجيات إعلانية متكاملة وبأعلى جودة، مخصصة حصرياً لمعارض الأثاث الفاخر والمشاريع الراقية. نحافظ على فخامة اسمك ونضمن لك صدارة السوق.",
                 servicesTitle: "خدماتنا الحصرية",
-                srv1Title: "إدارة وتسيير الإعلانات للنخبة",
+                srv1Title: "إدارة وتسيير الإعلانات للنخبة (Media Buyer)",
                 srv1Desc: "استهداف دقيق يركز حصرياً على الفئات الراقية والمهتمة بالجودة. نسير حملاتك الإعلانية باحترافية تحافظ على برستيج وقيمة معرضك.",
                 srv2Title: "صناعة محتوى وتصوير سينمائي احترافي",
                 srv2Desc: "يشمل حصتين (2) تصوير فوتوغرافي وفيديو عالي الجودة احترافي كل شهر، لإبراز تفاصيل الأثاث الفاخر بجمالية تليق بزبائنك.",
@@ -247,6 +248,7 @@
 
         const body = document.body;
 
+        // دالة تبديل اللغة
         function changeLang(lang) {
             document.getElementById('subTitle').textContent = dictionary[lang].sub;
             document.getElementById('mainTitle').textContent = dictionary[lang].title;
@@ -273,6 +275,7 @@
             }
         }
 
+        // إخفاء الـ Overlay وتشغيل الصوت بشكل ديناميكي ومؤمن
         function selectInitialLang(lang) {
             changeLang(lang);
             
@@ -290,6 +293,7 @@
             }).catch(e => console.log("Audio waiting for user interaction"));
         }
 
+        // التبديل بين المظلم والمضيء
         const themeBtn = document.getElementById('themeBtn');
         const themeIcon = document.getElementById('themeIcon');
 
@@ -305,6 +309,7 @@
             }
         });
 
+        // تشغيل وإيقاف الموسيقى
         const musicBtn = document.getElementById('musicBtn');
         const musicIcon = document.getElementById('musicIcon');
         const bgMusic = document.getElementById('bgMusic');
@@ -319,6 +324,7 @@
             }
         });
 
+        // دالة سحب معلومات الإدخال وإرسالها المباشر والمنظم لحساب الواتساب الخاص بك
         function sendToWhatsApp(event) {
             event.preventDefault();
             
@@ -332,7 +338,7 @@
                             `👤 *Name / Showroom:* ${name}\n` +
                             `📍 *City / Location:* ${city}\n` +
                             `🛋️ *Furniture Style:* ${type}\n\n` +
-                            `طلب حجز استشارة بخصوص عرض الإعلانات والتصوير الاحترافي الدائم (2 مرات في الشهر).`;
+                            `طلب حجز استشارة بخصوص عرض الإعلانات (Media Buyer) والتصوير الاحترافي الدائم (2 مرات في الشهر).`;
             
             const encodedMessage = encodeURIComponent(message);
             const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
