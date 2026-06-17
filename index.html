@@ -94,11 +94,11 @@
         </div>
         
         <div class="flex items-center space-x-4">
-            <button id="musicBtn" class="custom-card w-12 h-12 rounded-full flex items-center justify-center text-lg hover:scale-105 active:scale-95 text-[#d4af37]" title="Play/Pause Music">
+            <button id="musicBtn" class="custom-card w-12 h-12 rounded-full flex items-center justify-center text-lg hover:scale-105 active:scale-95 text-[#d4af37]">
                 <i id="musicIcon" class="fas fa-music"></i>
             </button>
             
-            <button id="themeBtn" class="custom-card w-12 h-12 rounded-full flex items-center justify-center text-lg hover:scale-105 active:scale-95 text-[#d4af37]" title="Toggle Theme">
+            <button id="themeBtn" class="custom-card w-12 h-12 rounded-full flex items-center justify-center text-lg hover:scale-105 active:scale-95 text-[#d4af37]">
                 <i id="themeIcon" class="fas fa-sun"></i>
             </button>
         </div>
@@ -164,7 +164,7 @@
                 </div>
                 <div>
                     <label id="lblType" class="block text-xs uppercase tracking-widest text-[#d4af37] mb-2 font-medium">Furniture Style / Speciality</label>
-                    <input type="text" id="clientType" placeholder="e.g., Ultra Modern, Classic Luxury..." required class="input-field w-full px-4 py-3 rounded-xl text-sm outline-none focus:border-[#d4af37] transition-all duration-300">
+                    <input type="text" id="clientType" required class="input-field w-full px-4 py-3 rounded-xl text-sm outline-none focus:border-[#d4af37] transition-all duration-300">
                 </div>
                 
                 <div class="pt-4 text-center">
@@ -182,7 +182,6 @@
     </footer>
 
     <script>
-        // الـ Dictionary بـ 4 لغات لضمان دقة عرض واجهة المستخدم بشكل احترافي وفخم
         const dictionary = {
             en: {
                 sub: "High-End Media Buying & Premium Creatives",
@@ -248,7 +247,6 @@
 
         const body = document.body;
 
-        // دالة تبديل اللغة
         function changeLang(lang) {
             document.getElementById('subTitle').textContent = dictionary[lang].sub;
             document.getElementById('mainTitle').textContent = dictionary[lang].title;
@@ -275,28 +273,22 @@
             }
         }
 
-        // إخفاء الـ Overlay وتشغيل الصوت بشكل ديناميكي ومؤمن
         function selectInitialLang(lang) {
             changeLang(lang);
-            
             const overlay = document.getElementById('languageOverlay');
             overlay.classList.add('fade-out');
-            
-            setTimeout(() => {
-                overlay.style.display = 'none';
-            }, 500);
+            setTimeout(() => { overlay.style.display = 'none'; }, 500);
 
             const bgMusic = document.getElementById('bgMusic');
             bgMusic.volume = 0.20;
             bgMusic.play().then(() => {
                 document.getElementById('musicIcon').className = 'fas fa-pause text-[#d4af37] animate-pulse';
-            }).catch(e => console.log("Audio waiting for user interaction"));
+            }).catch(e => console.log("Interaction required"));
         }
 
-        // التبديل بين المظلم والمضيء
+        // الأزرار والتيم والموسيقى المحفوظة
         const themeBtn = document.getElementById('themeBtn');
         const themeIcon = document.getElementById('themeIcon');
-
         themeBtn.addEventListener('click', () => {
             if (body.classList.contains('bg-dark-mode')) {
                 body.classList.remove('bg-dark-mode');
@@ -309,11 +301,9 @@
             }
         });
 
-        // تشغيل وإيقاف الموسيقى
         const musicBtn = document.getElementById('musicBtn');
         const musicIcon = document.getElementById('musicIcon');
         const bgMusic = document.getElementById('bgMusic');
-        
         musicBtn.addEventListener('click', () => {
             if (bgMusic.paused) {
                 bgMusic.play();
@@ -324,26 +314,21 @@
             }
         });
 
-        // دالة سحب معلومات الإدخال وإرسالها المباشر والمنظم لحساب الواتساب الخاص بك
+        // إرسال البيانات المباشر للـ WhatsApp
         function sendToWhatsApp(event) {
             event.preventDefault();
-            
             const name = document.getElementById('clientName').value;
             const city = document.getElementById('clientCity').value;
             const type = document.getElementById('clientType').value;
             
             const phoneNumber = "212614884963";
-            
             const message = `✨ *New Premium Showroom Application* ✨\n\n` +
                             `👤 *Name / Showroom:* ${name}\n` +
                             `📍 *City / Location:* ${city}\n` +
                             `🛋️ *Furniture Style:* ${type}\n\n` +
                             `طلب حجز استشارة بخصوص عرض الإعلانات (Media Buyer) والتصوير الاحترافي الدائم (2 مرات في الشهر).`;
             
-            const encodedMessage = encodeURIComponent(message);
-            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-            
-            window.open(whatsappUrl, '_blank');
+            window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
         }
     </script>
 </body>
