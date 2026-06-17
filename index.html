@@ -3,360 +3,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prestige Media - Premium Acquisition</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Premium Marketing & Media Buying for Luxury Furniture</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-    <style>
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            transition: background 0.5s ease, color 0.5s ease;
-        }
-        .font-serif-luxury {
-            font-family: 'Cormorant Garamond', serif;
-        }
-        
-        .custom-card, body, h1, p, span {
-            transition: all 0.5s ease;
-        }
-
-        /* Dark Mode (الأساسي) */
-        .bg-dark-mode {
-            background: linear-gradient(135deg, #0a0a0a 0%, #161616 100%);
-            color: #f3f4f6;
-        }
-        .bg-dark-mode .custom-card {
-            background-color: rgba(30, 30, 30, 0.45);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
-        }
-        .bg-dark-mode .text-muted {
-            color: rgba(243, 244, 246, 0.7);
-        }
-        .bg-dark-mode .input-field {
-            background-color: rgba(20, 20, 20, 0.6);
-            border: 1px solid rgba(212, 175, 55, 0.15);
-            color: #ffffff;
-        }
-
-        /* Light Mode */
-        .bg-light-mode {
-            background: linear-gradient(135deg, #f9f9f9 0%, #eddcd2 100%);
-            color: #1a1a1a;
-        }
-        .bg-light-mode .custom-card {
-            background-color: rgba(255, 255, 255, 0.8);
-            border: 1px solid rgba(212, 175, 55, 0.4);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-        }
-        .bg-light-mode .text-muted {
-            color: #4a4a4a;
-        }
-        .bg-light-mode .input-field {
-            background-color: rgba(255, 255, 255, 0.9);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            color: #1a1a1a;
-        }
-        
-        .fade-out {
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.5s ease;
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital@0;1&family=Marcellus&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-dark-mode min-h-screen flex flex-col justify-between overflow-x-hidden antialiased">
+<body class="bg-dark-mode transition-colors duration-500 min-h-screen relative overflow-x-hidden">
 
-    <audio id="bgMusic" loop>
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-    </audio>
-
-    <div id="languageOverlay" class="fixed inset-0 bg-[#0a0a0a] z- flex items-center justify-center p-4 transition-all duration-500">
-        <div class="max-w-md w-full border border-[#d4af37]/30 bg-[#121212] rounded-3xl p-8 text-center shadow-2xl relative">
-            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-[2px] bg-gradient-to-r from-transparent via-[#d4af37] to-transparent"></div>
-            
-            <span class="font-serif-luxury text-xl tracking-[0.30em] text-[#d4af37] font-semibold block mb-2">PRESTIGE</span>
-            <h2 class="font-serif-luxury text-2xl text-neutral-200 mb-8 font-light">Select Your Language</h2>
-            
-            <div class="grid grid-cols-1 gap-4">
-                <button onclick="selectInitialLang('en')" class="w-full py-3 border border-neutral-800 rounded-xl text-neutral-300 hover:border-[#d4af37] hover:text-[#d4af37] transition-all duration-300 text-sm tracking-widest font-medium">ENGLISH</button>
-                <button onclick="selectInitialLang('fr')" class="w-full py-3 border border-neutral-800 rounded-xl text-neutral-300 hover:border-[#d4af37] hover:text-[#d4af37] transition-all duration-300 text-sm tracking-widest font-medium">FRANÇAIS</button>
-                <button onclick="selectInitialLang('ar')" class="w-full py-3 border border-neutral-800 rounded-xl text-neutral-300 hover:border-[#d4af37] hover:text-[#d4af37] transition-all duration-300 text-sm tracking-widest font-medium">العربية</button>
-                <button onclick="selectInitialLang('es')" class="w-full py-3 border border-neutral-800 rounded-xl text-neutral-300 hover:border-[#d4af37] hover:text-[#d4af37] transition-all duration-300 text-sm tracking-widest font-medium">ESPAÑOL</button>
+    <div id="splash-screen" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#0d0d0d] px-4 text-center">
+        <div class="max-w-md custom-card p-8 rounded-2xl border border-[rgba(212,175,55,0.3)] backdrop-blur-md">
+            <div class="text-3xl font-serif text-[#d4af37] tracking-widest mb-2">LUXE ACQUISITION</div>
+            <p class="text-gray-400 text-sm mb-8 font-sans">Premium Advertising Solutions</p>
+            <h2 class="text-xl text-white mb-6 font-serif">اختر لغة العرض / Choisissez votre langue</h2>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button onclick="selectLanguage('ar')" class="px-6 py-3 bg-gradient-to-r from-[#b3922e] to-[#d4af37] text-black font-medium rounded-lg hover:opacity-90 transition-all font-serif">العربية</button>
+                <button onclick="selectLanguage('fr')" class="px-6 py-3 border border-[#d4af37] text-[#d4af37] font-medium rounded-lg hover:bg-[#d4af37] hover:text-black transition-all">Français</button>
             </div>
         </div>
     </div>
 
-    <header class="w-full max-w-6xl mx-auto px-6 py-6 flex justify-between items-center z-50">
-        <div class="flex items-center space-x-2">
-            <span class="font-serif-luxury text-2xl md:text-3xl tracking-[0.25em] text-[#d4af37] font-semibold">PRESTIGE</span>
-        </div>
+    <div id="main-content" class="hidden opacity-0 transition-opacity duration-1000 pb-24">
         
-        <div class="flex items-center space-x-4">
-            <button id="musicBtn" class="custom-card w-12 h-12 rounded-full flex items-center justify-center text-lg hover:scale-105 active:scale-95 text-[#d4af37]">
-                <i id="musicIcon" class="fas fa-music"></i>
-            </button>
+        <header class="container mx-auto px-6 py-6 flex justify-between items-center border-b border-[rgba(212,175,55,0.15)]">
+            <div class="text-xl font-serif text-[#d4af37] tracking-widest" id="nav-logo">LUXE ACQUISITION</div>
             
-            <button id="themeBtn" class="custom-card w-12 h-12 rounded-full flex items-center justify-center text-lg hover:scale-105 active:scale-95 text-[#d4af37]">
-                <i id="themeIcon" class="fas fa-sun"></i>
-            </button>
-        </div>
-    </header>
+            <div class="flex items-center gap-4">
+                <button onclick="toggleMode()" class="text-xl text-[#d4af37] p-2 hover:opacity-80 transition" id="mode-toggle-btn">
+                    <i class="fas fa-sun"></i>
+                </button>
+                <button onclick="switchLanguageInstant()" class="border border-[#d4af37] text-[#d4af37] px-3 py-1 text-xs rounded hover:bg-[#d4af37] hover:text-black transition font-medium" id="lang-toggle-btn">
+                    FR
+                </button>
+            </div>
+        </header>
 
-    <main class="flex-grow flex flex-col items-center justify-center px-4 py-8 max-w-4xl mx-auto w-full space-y-12">
-        
-        <div class="custom-card w-full rounded-3xl p-8 md:p-14 text-center relative backdrop-blur-md">
-            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-40 h-[3px] bg-gradient-to-r from-transparent via-[#d4af37] to-transparent"></div>
-
-            <span id="subTitle" class="text-xs md:text-sm tracking-[0.35em] uppercase text-[#d4af37] font-medium mb-4 block">
-                High-End Media Buying & Premium Creatives
-            </span>
-            
-            <h1 id="mainTitle" class="font-serif-luxury text-4xl md:text-6xl font-normal tracking-wide mb-6 leading-[1.15]">
-                Elevate Your Luxury Brand Experience
-            </h1>
-            
-            <p id="description" class="text-sm md:text-base text-muted max-w-2xl mx-auto mb-8 leading-relaxed font-light">
-                We design premium advertising architecture exclusively for high-end furniture showrooms and boutique creators. We turn discretion and prestige into predictable market dominance.
-            </p>
-
-            <div class="flex flex-wrap justify-center gap-3 mb-4">
-                <button onclick="changeLang('en')" class="px-5 py-2 text-xs tracking-widest uppercase border border-neutral-700/40 rounded-full hover:border-[#d4af37] transition-all duration-300 font-medium">EN</button>
-                <button onclick="changeLang('fr')" class="px-5 py-2 text-xs tracking-widest uppercase border border-neutral-700/40 rounded-full hover:border-[#d4af37] transition-all duration-300 font-medium">FR</button>
-                <button onclick="changeLang('ar')" class="px-5 py-2 text-xs tracking-widest uppercase border border-neutral-700/40 rounded-full hover:border-[#d4af37] transition-all duration-300 font-medium">AR</button>
-                <button onclick="changeLang('es')" class="px-5 py-2 text-xs tracking-widest uppercase border border-neutral-700/40 rounded-full hover:border-[#d4af37] transition-all duration-300 font-medium">ES</button>
+        <div class="container mx-auto px-6 mt-12 flex justify-center">
+            <div class="inline-flex p-1 bg-[rgba(255,255,255,0.03)] border border-[rgba(212,175,55,0.2)] rounded-xl backdrop-blur-md shadow-lg" id="tabs-container">
+                <button onclick="switchTab('presentation')" id="tab-presentation" class="tab-btn active-tab px-6 py-2.5 text-sm font-medium rounded-lg transition-all duration-300">
+                    <i class="fas fa-briefcase mr-2 ml-2"></i> <span id="text-tab-pres">الخدمات والتقديم</span>
+                </button>
+                <button onclick="switchTab('gallery')" id="tab-gallery" class="tab-btn px-6 py-2.5 text-sm font-medium rounded-lg transition-all duration-300 text-gray-400 hover:text-white">
+                    <i class="fas fa-camera mr-2 ml-2"></i> <span id="text-tab-gal">Photography Showcase</span>
+                </button>
             </div>
         </div>
 
-        <div class="custom-card w-full rounded-3xl p-8 md:p-12 relative backdrop-blur-md">
-            <h2 id="servicesTitle" class="font-serif-luxury text-2xl md:text-4xl text-center text-[#d4af37] mb-8 tracking-wide">Our Bespoke Services</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="border border-neutral-800/60 rounded-2xl bg-black/10 overflow-hidden flex flex-col justify-between">
-                    <div class="h-48 w-full overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Elite Media Buying & Ads Analytics" class="w-full h-full object-cover opacity-80 hover:scale-105 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#161616] to-transparent"></div>
-                    </div>
-                    <div class="p-6 pt-2">
-                        <div class="text-[#d4af37] text-xl mb-2"><i class="fas fa-chart-line"></i></div>
-                        <h3 id="srv1Title" class="font-serif-luxury text-xl mb-2 font-semibold tracking-wide">Elite Media Buying</h3>
-                        <p id="srv1Desc" class="text-xs md:text-sm text-muted font-light leading-relaxed">
-                            Precision targeting aimed exclusively at high-net-worth individuals. We manage your ad campaigns with absolute discretion, ensuring your brand prestige remains untouched while driving high-quality clients.
-                        </p>
+        <section id="content-presentation" class="container mx-auto px-6 mt-12 max-w-4xl tab-content">
+            <div class="grid md:grid-cols-1 gap-8 text-center md:text-left">
+                <div class="flex flex-col justify-center items-center text-center">
+                    <span class="text-xs uppercase tracking-widest text-[#d4af37] font-semibold bg-[rgba(212,175,55,0.1)] px-3 py-1 rounded-full mb-4" id="hero-badge">MEDIA BUYING & CREATIVE DIRECTION</span>
+                    <h1 class="text-3xl md:text-5xl font-serif text-white tracking-wide mb-6 leading-snug" id="hero-title">
+                        نصنع إعلانات تليق ببرستيج أثاثكم الفاخر وتجذب النخبة
+                    </h1>
+                    <p class="text-base md:text-lg text-muted max-w-2xl mx-auto leading-relaxed" id="hero-desc">
+                        نحن لا نبيع مجرد إعلانات ممولة. نحن نصمم تجربة تسويقية راقية تبرز تفاصيل وجودة الأثاث المنزلي الفخم الخاص بكم، لنصل مباشرة إلى العملاء المستعدين للاستثمار في الفخامة.
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 mt-16">
+                <div class="custom-card p-6 rounded-xl border border-[rgba(212,175,55,0.15)]">
+                    <div class="text-2xl text-[#d4af37] mb-4"><i class="fas fa-gem"></i></div>
+                    <h3 class="text-lg font-serif text-white mb-2" id="feat1-title">إعلانات برستيج عالية الجودة</h3>
+                    <p class="text-sm text-muted leading-relaxed" id="feat1-desc">نصمم محتوى إعلاني (Creatives) نقي ومحترف جداً يتماشى مع الهوية البصرية لعلامتكم الفاخرة ويحترم ذوق زبائنكم.</p>
+                </div>
+                <div class="custom-card p-6 rounded-xl border border-[rgba(212,175,55,0.15)]">
+                    <div class="text-2xl text-[#d4af37] mb-4"><i class="fas fa-bullseye"></i></div>
+                    <h3 class="text-lg font-serif text-white mb-2" id="feat2-title">استهداف طبقة النخبة</h3>
+                    <p class="text-sm text-muted leading-relaxed" id="feat2-desc">نركز على استهداف دقيق (Audience Targeting) عبر منصات Instagram و Facebook للوصول لأشخاص يملكون قدرة شرائية عالية.</p>
+                </div>
+                <div class="custom-card p-6 rounded-xl border border-[rgba(212,175,55,0.15)]">
+                    <div class="text-2xl text-[#d4af37] mb-4"><i class="fas fa-chart-line"></i></div>
+                    <h3 class="text-lg font-serif text-white mb-2" id="feat3-title">تقارير دورية ونتائج واضحة</h3>
+                    <p class="text-sm text-muted leading-relaxed" id="feat3-desc">نقدم لكم تقارير أسبوعية أو شهرية شفافة توضح الأرقام بدقة: عدد المشاهدات، والمهتمين الجدد (Leads)، وحجم التطور.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="content-gallery" class="container mx-auto px-6 mt-12 max-w-5xl tab-content hidden">
+            <div class="text-center mb-10">
+                <h2 class="text-2xl md:text-3xl font-serif text-[#d4af37] mb-4" id="gal-title">معرض الفخامة والتصوير الاحترافي</h2>
+                <p class="text-sm md:text-base text-muted max-w-2xl mx-auto" id="gal-desc">
+                    هذه أمثلة حية تعكس جودة زوايا التصوير والإضاءة التي نعتمدها لإبراز جمالية الأثاث المنزلي الفاخر.
+                </p>
+                <div class="inline-block mt-4 bg-[rgba(212,175,55,0.1)] border border-[#d4af37] text-[#d4af37] px-4 py-2 rounded-lg text-xs font-medium" id="gal-offer-badge">
+                    <i class="fas fa-calendar-alt mr-1 ml-1"></i> عرض خاص: نزور محلكم مرتين في الشهر للتصوير الاحترافي والتحديث المستمر!
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <div class="group relative overflow-hidden rounded-xl border border-[rgba(212,175,55,0.15)] aspect-4/3 bg-[#141414]">
+                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=600&q=80" alt="Luxury Living Room" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90 p-4 flex flex-col justify-end">
+                        <span class="text-[#d4af37] text-xs font-serif uppercase tracking-widest" id="img-tag-1">Living Room Setup</span>
                     </div>
                 </div>
-
-                <div class="border border-neutral-800/60 rounded-2xl bg-black/10 overflow-hidden flex flex-col justify-between">
-                    <div class="h-48 w-full overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80" alt="Premium Luxury Furniture Showroom Photography" class="w-full h-full object-cover opacity-80 hover:scale-105 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#161616] to-transparent"></div>
+                <div class="group relative overflow-hidden rounded-xl border border-[rgba(212,175,55,0.15)] aspect-4/3 bg-[#141414]">
+                    <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=600&q=80" alt="Premium Bedroom" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90 p-4 flex flex-col justify-end">
+                        <span class="text-[#d4af37] text-xs font-serif uppercase tracking-widest" id="img-tag-2">Master Bedroom Luxury</span>
                     </div>
-                    <div class="p-6 pt-2">
-                        <div class="text-[#d4af37] text-xl mb-2"><i class="fas fa-camera"></i></div>
-                        <h3 id="srv2Title" class="font-serif-luxury text-xl mb-2 font-semibold tracking-wide">Premium Cinema & Photography</h3>
-                        <p id="srv2Desc" class="text-xs md:text-sm text-muted font-light leading-relaxed">
-                            Includes 2 high-end professional shooting sessions per month. We capture the fine details of your luxury furniture with cinema-grade visuals to build an aesthetic that commands premium pricing.
-                        </p>
+                </div>
+                <div class="group relative overflow-hidden rounded-xl border border-[rgba(212,175,55,0.15)] aspect-4/3 bg-[#141414]">
+                    <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=600&q=80" alt="Modern Dining Luxury" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90 p-4 flex flex-col justify-end">
+                        <span class="text-[#d4af37] text-xs font-serif uppercase tracking-widest" id="img-tag-3">Modern Dining Concept</span>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div id="bookingForm" class="custom-card w-full max-w-xl rounded-3xl p-8 md:p-10 relative backdrop-blur-md mx-auto">
-            <h2 id="formTitle" class="font-serif-luxury text-2xl md:text-3xl text-center text-[#d4af37] mb-6 tracking-wide">Request Private Consultation</h2>
-            
-            <form onsubmit="sendToWhatsApp(event)" class="space-y-4">
-                <div>
-                    <label id="lblName" class="block text-xs uppercase tracking-widest text-[#d4af37] mb-2 font-medium">Full Name</label>
-                    <input type="text" id="clientName" required class="input-field w-full px-4 py-3 rounded-xl text-sm outline-none focus:border-[#d4af37] transition-all duration-300">
-                </div>
-                <div>
-                    <label id="lblBrand" class="block text-xs uppercase tracking-widest text-[#d4af37] mb-2 font-medium">Brand Name / Showroom</label>
-                    <input type="text" id="clientBrand" required class="input-field w-full px-4 py-3 rounded-xl text-sm outline-none focus:border-[#d4af37] transition-all duration-300">
-                </div>
-                <div>
-                    <label id="lblPhone" class="block text-xs uppercase tracking-widest text-[#d4af37] mb-2 font-medium">WhatsApp Number</label>
-                    <input type="tel" id="clientPhone" placeholder="+212 600-000000" required class="input-field w-full px-4 py-3 rounded-xl text-sm outline-none focus:border-[#d4af37] transition-all duration-300">
-                </div>
-                <div>
-                    <label id="lblCity" class="block text-xs uppercase tracking-widest text-[#d4af37] mb-2 font-medium">City / Location</label>
-                    <input type="text" id="clientCity" required class="input-field w-full px-4 py-3 rounded-xl text-sm outline-none focus:border-[#d4af37] transition-all duration-300">
+        <section class="container mx-auto px-6 mt-16 max-w-xl">
+            <div class="custom-card p-8 rounded-2xl border border-[rgba(212,175,55,0.25)] relative overflow-hidden">
+                <div class="text-center mb-6">
+                    <h3 class="text-xl md:text-2xl font-serif text-[#d4af37] mb-2" id="form-title">دعنا نطور أعمالكم معاً</h3>
+                    <p class="text-xs text-muted" id="form-desc">املأ الاستمارة وسنتواصل معك لمناقشة خطة الإعلانات لمحلكم</p>
                 </div>
                 
-                <div class="pt-4 text-center">
-                    <button type="submit" id="submitBtn" class="w-full bg-gradient-to-r from-[#d4af37] to-[#aa841a] text-black font-semibold tracking-[0.2em] text-xs uppercase py-4 rounded-full shadow-xl hover:shadow-[0_10px_30px_rgba(212,175,55,0.35)] transition-all duration-300 transform hover:-translate-y-0.5">
-                        Send Application Via WhatsApp
+                <form id="lead-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-gray-400 mb-1 font-medium" id="lbl-name">اسم المحل / المسؤول</label>
+                        <input type="text" id="form-input-name" required class="w-full bg-[rgba(255,255,255,0.02)] border border-[rgba(212,175,55,0.2)] rounded-lg px-4 py-3 text-white text-sm focus:outline-none focus:border-[#d4af37] transition">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-gray-400 mb-1 font-medium" id="lbl-phone">رقم الهاتف</label>
+                        <input type="tel" id="form-input-phone" required class="w-full bg-[rgba(255,255,255,0.02)] border border-[rgba(212,175,55,0.2)] rounded-lg px-4 py-3 text-white text-sm focus:outline-none focus:border-[#d4af37] transition text-left">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-gray-400 mb-1 font-medium" id="lbl-city">المدينة</label>
+                        <input type="text" id="form-input-city" required class="w-full bg-[rgba(255,255,255,0.02)] border border-[rgba(212,175,55,0.2)] rounded-lg px-4 py-3 text-white text-sm focus:outline-none focus:border-[#d4af37] transition">
+                    </div>
+                    <button type="submit" class="w-full py-3.5 bg-gradient-to-r from-[#b3922e] to-[#d4af37] text-black font-semibold rounded-lg text-sm hover:opacity-90 transition shadow-lg mt-2 flex items-center justify-center gap-2">
+                        <i class="fab fa-whatsapp text-lg"></i> <span id="btn-submit">مناقشة المشروع عبر واتساب</span>
                     </button>
-                </div>
-            </form>
-        </div>
+                </form>
+            </div>
+        </section>
 
-    </main>
+    </div>
 
-    <footer class="w-full text-center py-6 text-[10px] text-neutral-500 tracking-[0.3em] font-light">
-        &copy; 2026 PRESTIGE MEDIA. ALL RIGHTS RESERVED.
-    </footer>
-
-    <script>
-        const dictionary = {
-            en: {
-                sub: "High-End Media Buying & Premium Creatives",
-                title: "Elevate Your Luxury Brand Experience",
-                desc: "We design premium advertising architecture exclusively for high-end furniture showrooms and boutique creators. We turn discretion and prestige into predictable market dominance.",
-                servicesTitle: "Our Bespoke Services",
-                srv1Title: "Elite Media Buying",
-                srv1Desc: "Precision targeting aimed exclusively at high-net-worth individuals. We manage your ad campaigns with absolute discretion, ensuring your brand prestige remains untouched while driving high-quality clients.",
-                srv2Title: "Premium Cinema & Photography",
-                srv2Desc: "Includes 2 high-end professional shooting sessions per month. We capture the fine details of your luxury furniture with cinema-grade visuals to build an aesthetic that commands premium pricing.",
-                formTitle: "Request Private Consultation",
-                lblName: "Full Name",
-                lblBrand: "Brand Name / Showroom",
-                lblPhone: "WhatsApp Number",
-                lblCity: "City / Location",
-                submitBtn: "Send Application Via WhatsApp"
-            },
-            fr: {
-                sub: "Acquisition Média & Créations Haut de Gamme",
-                title: "Sublimez l'Expérience de Votre Marque",
-                desc: "Nous concevons des architectures publicitaires premium exclusivement pour les showrooms de mobilier de luxe. Transformez le prestige en domination absolue du marché.",
-                servicesTitle: "Nos Services Sur Mesure",
-                srv1Title: "Achat Média d'Élite",
-                srv1Desc: "Ciblage de precision destiné exclusivement aux clients à haut pouvoir d'achat. Nous gérons vos campagnes avec une discrétion absolue pour préserver le prestige de votre marque.",
-                srv2Title: "Cinéma & Photographie Premium",
-                srv2Desc: "Comprend 2 sessions de tournage professionnel haut de gamme par mois. Nous capturons les détails fins de vos meubles avec des visuels de qualité cinéma.",
-                formTitle: "Demander une Consultation Privée",
-                lblName: "Nom Complet",
-                lblBrand: "Nom du Showroom / Marque",
-                lblPhone: "Numéro de WhatsApp",
-                lblCity: "Ville / Emplacement",
-                submitBtn: "Envoyer ma Demande via WhatsApp"
-            },
-            ar: {
-                sub: "إعلانات حصرية وصناعة محتوى فاخر",
-                title: "ارتقِ ببرستيج علامتك التجارية الفاخرة",
-                desc: "نصمم إستراتيجيات إعلانية متكاملة وبأعلى جودة، مخصصة حصرياً لمعارض الأثاث الفاخر والمشاريع الراقية. نحافظ على فخامة اسمك ونضمن لك صدارة السوق.",
-                servicesTitle: "خدماتنا الحصرية",
-                srv1Title: "إدارة وتسيير الإعلانات للنخبة (Media Buyer)",
-                srv1Desc: "استهداف دقيق يركز حصرياً على الفئات الراقية والمهتمة بالجودة. نسير حملاتك الإعلانية باحترافية تحافظ على برستيج وقيمة معرضك.",
-                srv2Title: "صناعة محتوى وتصوير سينمائي احترافي",
-                srv2Desc: "يشمل حصتين (2) تصوير فوتوغرافي وفيديو عالي الجودة احترافي كل شهر، لإبراز تفاصيل الأثاث الفاخر بجمالية تليق بزبائنك.",
-                formTitle: "طلب استشارة خاصة للمشروع",
-                lblName: "الاسم الكامل",
-                lblBrand: "اسم المحل / العلامة التجارية",
-                lblPhone: "رقم الواتساب",
-                lblCity: "المدينة / الموقع",
-                submitBtn: "إرسال الطلب عبر الواتساب"
-            },
-            es: {
-                sub: "Adquisición de Medios y Creatividad Premium",
-                title: "Eleve la Experiencia de su Marca de Lujo",
-                desc: "Diseñamos arquitectura publicitaria exclusiva para salones de muebles de alta gama y creadores boutique. Convertimos el prestigio en un dominio predecible del mercado.",
-                servicesTitle: "Nuestros Servicios Exclusivos",
-                srv1Title: "Compra de Medios de Élite",
-                srv1Desc: "Segmentación de precisión dirigida exclusivamente a personas de alto patrimonio. Gestionamos sus campañas con absoluta discreción, manteniendo el prestigio intacto.",
-                srv2Title: "Cine y Fotografía Premium",
-                srv2Desc: "Incluye 2 sesiones de rodaje profesional de alta gama al mes. Capturamos los detalles finos de sus muebles de lujo con imágenes de calidad cinematográfica.",
-                formTitle: "Solicitar Consulta Privada",
-                lblName: "Nombre Completo",
-                lblBrand: "Nombre de la Marca / Showroom",
-                lblPhone: "Número de WhatsApp",
-                lblCity: "Ciudad / Ubicación",
-                submitBtn: "Enviar Solicitud por WhatsApp"
-            }
-        };
-
-        const body = document.body;
-
-        function changeLang(lang) {
-            document.getElementById('subTitle').textContent = dictionary[lang].sub;
-            document.getElementById('mainTitle').textContent = dictionary[lang].title;
-            document.getElementById('description').textContent = dictionary[lang].desc;
-            
-            document.getElementById('servicesTitle').textContent = dictionary[lang].servicesTitle;
-            document.getElementById('srv1Title').textContent = dictionary[lang].srv1Title;
-            document.getElementById('srv1Desc').textContent = dictionary[lang].srv1Desc;
-            document.getElementById('srv2Title').textContent = dictionary[lang].srv2Title;
-            document.getElementById('srv2Desc').textContent = dictionary[lang].srv2Desc;
-            
-            document.getElementById('formTitle').textContent = dictionary[lang].formTitle;
-            document.getElementById('lblName').textContent = dictionary[lang].lblName;
-            document.getElementById('lblBrand').textContent = dictionary[lang].lblBrand;
-            document.getElementById('lblPhone').textContent = dictionary[lang].lblPhone;
-            document.getElementById('lblCity').textContent = dictionary[lang].lblCity;
-            document.getElementById('submitBtn').textContent = dictionary[lang].submitBtn;
-
-            if (lang === 'ar') {
-                body.dir = 'rtl';
-                document.getElementById('mainTitle').classList.add('leading-normal');
-            } else {
-                body.dir = 'ltr';
-                document.getElementById('mainTitle').classList.remove('leading-normal');
-            }
-        }
-
-        function selectInitialLang(lang) {
-            changeLang(lang);
-            const overlay = document.getElementById('languageOverlay');
-            overlay.classList.add('fade-out');
-            setTimeout(() => { overlay.style.display = 'none'; }, 500);
-
-            const bgMusic = document.getElementById('bgMusic');
-            bgMusic.volume = 0.20;
-            bgMusic.play().then(() => {
-                document.getElementById('musicIcon').className = 'fas fa-pause text-[#d4af37] animate-pulse';
-            }).catch(e => console.log("Interaction required"));
-        }
-
-        // تحويل الثيم
-        const themeBtn = document.getElementById('themeBtn');
-        const themeIcon = document.getElementById('themeIcon');
-        themeBtn.addEventListener('click', () => {
-            if (body.classList.contains('bg-dark-mode')) {
-                body.classList.remove('bg-dark-mode');
-                body.classList.add('bg-light-mode');
-                themeIcon.className = 'fas fa-moon';
-            } else {
-                body.classList.remove('bg-light-mode');
-                body.classList.add('bg-dark-mode');
-                themeIcon.className = 'fas fa-sun';
-            }
-        });
-
-        // تشغيل الموسيقى الخلفية
-        const musicBtn = document.getElementById('musicBtn');
-        const musicIcon = document.getElementById('musicIcon');
-        const bgMusic = document.getElementById('bgMusic');
-        musicBtn.addEventListener('click', () => {
-            if (bgMusic.paused) {
-                bgMusic.play();
-                musicIcon.className = 'fas fa-pause text-[#d4af37] animate-pulse';
-            } else {
-                bgMusic.pause();
-                musicIcon.className = 'fas fa-music text-[#d4af37]';
-            }
-        });
-
-        // إرسال البيانات المباشر والمنظم للواتساب ديالك
-        function sendToWhatsApp(event) {
-            event.preventDefault();
-            const name = document.getElementById('clientName').value;
-            const brand = document.getElementById('clientBrand').value;
-            const phone = document.getElementById('clientPhone').value;
-            const city = document.getElementById('clientCity').value;
-            
-            const myWhatsAppNumber = "212614884963";
-            
-            // الميساج الاحترافي اللي غايوصلك للواتساب مرتب ونقي
-            const message = `✨ *New Premium Consultation Request* ✨\n\n` +
-                            `👤 *Client Name:* ${name}\n` +
-                            `🏢 *Brand / Showroom:* ${brand}\n` +
-                            `📞 *WhatsApp Number:* ${phone}\n` +
-                            `📍 *City / Location:* ${city}\n\n` +
-                            `💼 *Service Requested:* Media Buyer & Premium Cinema Photography (2 Sessions / Month).`;
-            
-            window.open(`https://wa.me/${myWhatsAppNumber}?text=${encodeURIComponent(message)}`, '_blank');
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
