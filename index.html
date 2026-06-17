@@ -133,19 +133,32 @@
             <h2 id="servicesTitle" class="font-serif-luxury text-2xl md:text-4xl text-center text-[#d4af37] mb-8 tracking-wide">Our Bespoke Services</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="border border-neutral-800/60 p-6 rounded-2xl bg-black/10">
-                    <div class="text-[#d4af37] text-2xl mb-3"><i class="fas fa-chart-line"></i></div>
-                    <h3 id="srv1Title" class="font-serif-luxury text-xl mb-2 font-semibold tracking-wide">Elite Media Buying</h3>
-                    <p id="srv1Desc" class="text-xs md:text-sm text-muted font-light leading-relaxed">
-                        Precision targeting aimed exclusively at high-net-worth individuals. We manage your ad campaigns with absolute discretion, ensuring your brand prestige remains untouched while driving high-quality clients.
-                    </p>
+                <div class="border border-neutral-800/60 rounded-2xl bg-black/10 overflow-hidden flex flex-col justify-between">
+                    <div class="h-48 w-full overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Elite Media Buying & Ads Analytics" class="w-full h-full object-cover opacity-80 hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#161616] to-transparent"></div>
+                    </div>
+                    <div class="p-6 pt-2">
+                        <div class="text-[#d4af37] text-xl mb-2"><i class="fas fa-chart-line"></i></div>
+                        <h3 id="srv1Title" class="font-serif-luxury text-xl mb-2 font-semibold tracking-wide">Elite Media Buying</h3>
+                        <p id="srv1Desc" class="text-xs md:text-sm text-muted font-light leading-relaxed">
+                            Precision targeting aimed exclusively at high-net-worth individuals. We manage your ad campaigns with absolute discretion, ensuring your brand prestige remains untouched while driving high-quality clients.
+                        </p>
+                    </div>
                 </div>
-                <div class="border border-neutral-800/60 p-6 rounded-2xl bg-black/10">
-                    <div class="text-[#d4af37] text-2xl mb-3"><i class="fas fa-camera"></i></div>
-                    <h3 id="srv2Title" class="font-serif-luxury text-xl mb-2 font-semibold tracking-wide">Premium Cinema & Photography</h3>
-                    <p id="srv2Desc" class="text-xs md:text-sm text-muted font-light leading-relaxed">
-                        Includes 2 high-end professional shooting sessions per month. We capture the fine details of your luxury furniture with cinema-grade visuals to build an aesthetic that commands premium pricing.
-                    </p>
+
+                <div class="border border-neutral-800/60 rounded-2xl bg-black/10 overflow-hidden flex flex-col justify-between">
+                    <div class="h-48 w-full overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80" alt="Premium Luxury Furniture Showroom Photography" class="w-full h-full object-cover opacity-80 hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#161616] to-transparent"></div>
+                    </div>
+                    <div class="p-6 pt-2">
+                        <div class="text-[#d4af37] text-xl mb-2"><i class="fas fa-camera"></i></div>
+                        <h3 id="srv2Title" class="font-serif-luxury text-xl mb-2 font-semibold tracking-wide">Premium Cinema & Photography</h3>
+                        <p id="srv2Desc" class="text-xs md:text-sm text-muted font-light leading-relaxed">
+                            Includes 2 high-end professional shooting sessions per month. We capture the fine details of your luxury furniture with cinema-grade visuals to build an aesthetic that commands premium pricing.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -155,16 +168,20 @@
             
             <form onsubmit="sendToWhatsApp(event)" class="space-y-4">
                 <div>
-                    <label id="lblName" class="block text-xs uppercase tracking-widest text-[#d4af37] mb-2 font-medium">Showroom / Full Name</label>
+                    <label id="lblName" class="block text-xs uppercase tracking-widest text-[#d4af37] mb-2 font-medium">Full Name</label>
                     <input type="text" id="clientName" required class="input-field w-full px-4 py-3 rounded-xl text-sm outline-none focus:border-[#d4af37] transition-all duration-300">
+                </div>
+                <div>
+                    <label id="lblBrand" class="block text-xs uppercase tracking-widest text-[#d4af37] mb-2 font-medium">Brand Name / Showroom</label>
+                    <input type="text" id="clientBrand" required class="input-field w-full px-4 py-3 rounded-xl text-sm outline-none focus:border-[#d4af37] transition-all duration-300">
+                </div>
+                <div>
+                    <label id="lblPhone" class="block text-xs uppercase tracking-widest text-[#d4af37] mb-2 font-medium">WhatsApp Number</label>
+                    <input type="tel" id="clientPhone" placeholder="+212 600-000000" required class="input-field w-full px-4 py-3 rounded-xl text-sm outline-none focus:border-[#d4af37] transition-all duration-300">
                 </div>
                 <div>
                     <label id="lblCity" class="block text-xs uppercase tracking-widest text-[#d4af37] mb-2 font-medium">City / Location</label>
                     <input type="text" id="clientCity" required class="input-field w-full px-4 py-3 rounded-xl text-sm outline-none focus:border-[#d4af37] transition-all duration-300">
-                </div>
-                <div>
-                    <label id="lblType" class="block text-xs uppercase tracking-widest text-[#d4af37] mb-2 font-medium">Furniture Style / Speciality</label>
-                    <input type="text" id="clientType" required class="input-field w-full px-4 py-3 rounded-xl text-sm outline-none focus:border-[#d4af37] transition-all duration-300">
                 </div>
                 
                 <div class="pt-4 text-center">
@@ -193,9 +210,10 @@
                 srv2Title: "Premium Cinema & Photography",
                 srv2Desc: "Includes 2 high-end professional shooting sessions per month. We capture the fine details of your luxury furniture with cinema-grade visuals to build an aesthetic that commands premium pricing.",
                 formTitle: "Request Private Consultation",
-                lblName: "Showroom / Full Name",
+                lblName: "Full Name",
+                lblBrand: "Brand Name / Showroom",
+                lblPhone: "WhatsApp Number",
                 lblCity: "City / Location",
-                lblType: "Furniture Style / Speciality",
                 submitBtn: "Send Application Via WhatsApp"
             },
             fr: {
@@ -204,13 +222,14 @@
                 desc: "Nous concevons des architectures publicitaires premium exclusivement pour les showrooms de mobilier de luxe. Transformez le prestige en domination absolue du marché.",
                 servicesTitle: "Nos Services Sur Mesure",
                 srv1Title: "Achat Média d'Élite",
-                srv1Desc: "Ciblage de précision destiné exclusivement aux clients à haut pouvoir d'achat. Nous gérons vos campagnes avec une discrétion absolue pour préserver le prestige de votre marque.",
+                srv1Desc: "Ciblage de precision destiné exclusivement aux clients à haut pouvoir d'achat. Nous gérons vos campagnes avec une discrétion absolue pour préserver le prestige de votre marque.",
                 srv2Title: "Cinéma & Photographie Premium",
                 srv2Desc: "Comprend 2 sessions de tournage professionnel haut de gamme par mois. Nous capturons les détails fins de vos meubles avec des visuels de qualité cinéma.",
                 formTitle: "Demander une Consultation Privée",
-                lblName: "Showroom / Nom Complet",
+                lblName: "Nom Complet",
+                lblBrand: "Nom du Showroom / Marque",
+                lblPhone: "Numéro de WhatsApp",
                 lblCity: "Ville / Emplacement",
-                lblType: "Style de Mobilier / Spécialité",
                 submitBtn: "Envoyer ma Demande via WhatsApp"
             },
             ar: {
@@ -223,9 +242,10 @@
                 srv2Title: "صناعة محتوى وتصوير سينمائي احترافي",
                 srv2Desc: "يشمل حصتين (2) تصوير فوتوغرافي وفيديو عالي الجودة احترافي كل شهر، لإبراز تفاصيل الأثاث الفاخر بجمالية تليق بزبائنك.",
                 formTitle: "طلب استشارة خاصة للمشروع",
-                lblName: "اسم المعرض / الاسم الكامل",
+                lblName: "الاسم الكامل",
+                lblBrand: "اسم المحل / العلامة التجارية",
+                lblPhone: "رقم الواتساب",
                 lblCity: "المدينة / الموقع",
-                lblType: "نوع أو ستايل الأثاث المتاح",
                 submitBtn: "إرسال الطلب عبر الواتساب"
             },
             es: {
@@ -238,9 +258,10 @@
                 srv2Title: "Cine y Fotografía Premium",
                 srv2Desc: "Incluye 2 sesiones de rodaje profesional de alta gama al mes. Capturamos los detalles finos de sus muebles de lujo con imágenes de calidad cinematográfica.",
                 formTitle: "Solicitar Consulta Privada",
-                lblName: "Showroom / Nombre Completo",
+                lblName: "Nombre Completo",
+                lblBrand: "Nombre de la Marca / Showroom",
+                lblPhone: "Número de WhatsApp",
                 lblCity: "Ciudad / Ubicación",
-                lblType: "Estilo de Muebles / Especialidad",
                 submitBtn: "Enviar Solicitud por WhatsApp"
             }
         };
@@ -260,8 +281,9 @@
             
             document.getElementById('formTitle').textContent = dictionary[lang].formTitle;
             document.getElementById('lblName').textContent = dictionary[lang].lblName;
+            document.getElementById('lblBrand').textContent = dictionary[lang].lblBrand;
+            document.getElementById('lblPhone').textContent = dictionary[lang].lblPhone;
             document.getElementById('lblCity').textContent = dictionary[lang].lblCity;
-            document.getElementById('lblType').textContent = dictionary[lang].lblType;
             document.getElementById('submitBtn').textContent = dictionary[lang].submitBtn;
 
             if (lang === 'ar') {
@@ -286,7 +308,7 @@
             }).catch(e => console.log("Interaction required"));
         }
 
-        // الأزرار والتيم والموسيقى المحفوظة
+        // تحويل الثيم
         const themeBtn = document.getElementById('themeBtn');
         const themeIcon = document.getElementById('themeIcon');
         themeBtn.addEventListener('click', () => {
@@ -301,6 +323,7 @@
             }
         });
 
+        // تشغيل الموسيقى الخلفية
         const musicBtn = document.getElementById('musicBtn');
         const musicIcon = document.getElementById('musicIcon');
         const bgMusic = document.getElementById('bgMusic');
@@ -314,21 +337,25 @@
             }
         });
 
-        // إرسال البيانات المباشر للـ WhatsApp
+        // إرسال البيانات المباشر والمنظم للواتساب ديالك
         function sendToWhatsApp(event) {
             event.preventDefault();
             const name = document.getElementById('clientName').value;
+            const brand = document.getElementById('clientBrand').value;
+            const phone = document.getElementById('clientPhone').value;
             const city = document.getElementById('clientCity').value;
-            const type = document.getElementById('clientType').value;
             
-            const phoneNumber = "212614884963";
-            const message = `✨ *New Premium Showroom Application* ✨\n\n` +
-                            `👤 *Name / Showroom:* ${name}\n` +
-                            `📍 *City / Location:* ${city}\n` +
-                            `🛋️ *Furniture Style:* ${type}\n\n` +
-                            `طلب حجز استشارة بخصوص عرض الإعلانات (Media Buyer) والتصوير الاحترافي الدائم (2 مرات في الشهر).`;
+            const myWhatsAppNumber = "212614884963";
             
-            window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
+            // الميساج الاحترافي اللي غايوصلك للواتساب مرتب ونقي
+            const message = `✨ *New Premium Consultation Request* ✨\n\n` +
+                            `👤 *Client Name:* ${name}\n` +
+                            `🏢 *Brand / Showroom:* ${brand}\n` +
+                            `📞 *WhatsApp Number:* ${phone}\n` +
+                            `📍 *City / Location:* ${city}\n\n` +
+                            `💼 *Service Requested:* Media Buyer & Premium Cinema Photography (2 Sessions / Month).`;
+            
+            window.open(`https://wa.me/${myWhatsAppNumber}?text=${encodeURIComponent(message)}`, '_blank');
         }
     </script>
 </body>
