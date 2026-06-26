@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Haute Ébénisterie & Mobilier de Luxe</title>
+    <title>Media Buying & Luxury Photography for Furniture Brands</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,9 +27,10 @@
 </head>
 <body class="font-body bg-[#0f0f0f] text-[#f5f5f5] selection:bg-[#d4af37] selection:text-black">
 
-    <audio id="bgMusic" loop src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+    <!-- موسيقى بيانو هادئة جداً (Zara Style) -->
+    <audio id="bgMusic" loop src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3"></audio>
 
-    <!-- التحكم في الموسيقى، المظهر، واللغات -->
+    <!-- أدوات التحكم -->
     <div class="fixed top-5 right-5 z-50 flex items-center gap-3 bg-black/40 backdrop-blur-md p-2 rounded-full border border-[#d4af37]/30">
         <button id="musicBtn" onclick="toggleMusic()" class="w-10 h-10 rounded-full flex items-center justify-center text-[#d4af37] hover:bg-white/10 transition" title="Music On/Off">
             <i id="musicIcon" class="fas fa-volume-mute"></i>
@@ -53,36 +54,40 @@
     </div>
 
     <!-- Hero Section -->
-    <header class="relative min-h-screen flex items-center justify-center bg-cover bg-center" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(15,15,15,1)), url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1920');">
+    <header class="relative min-h-screen flex items-center justify-center bg-cover bg-center" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(15,15,15,1)), url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1920');">
         <div class="max-w-4xl mx-auto text-center px-6 mt-16">
-            <span class="text-[#d4af37] uppercase tracking-widest text-sm font-semibold block mb-4 font-luxury" data-key="hero-sub">Collection Privée 2026</span>
-            <h1 id="mainTitle" class="text-4xl md:text-6xl font-luxury font-bold text-white mb-6 leading-tight drop-shadow-md" data-key="hero-title">
-                Mobilier d'Exception Pour Espaces Prestigieux
+            <span class="text-[#d4af37] uppercase tracking-widest text-sm font-semibold block mb-4 font-luxury" data-key="hero-sub">Media Buying & Photography</span>
+            <h1 id="mainTitle" class="text-4xl md:text-5xl font-luxury font-bold text-white mb-6 leading-tight drop-shadow-md" data-key="hero-title">
+                Plus de Clients Pour Votre Marque de Meubles
             </h1>
             <p class="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light" data-key="hero-desc">
-                Le sur-mesure d’exception pour ceux qui refusent le compromis.
+                Nous créons des visuels haut de gamme et propulsons vos publicités pour attirer des acheteurs qualifiés.
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="#gallery" class="px-8 py-4 border border-[#d4af37] text-[#d4af37] font-semibold tracking-wider hover:bg-[#d4af37] hover:text-black transition-all duration-300 uppercase text-xs" data-key="btn-discover">
-                    Découvrir l'Excellence
+                <a href="#services" class="px-8 py-4 border border-[#d4af37] text-[#d4af37] font-semibold tracking-wider hover:bg-[#d4af37] hover:text-black transition-all duration-300 uppercase text-xs" data-key="btn-discover">
+                    Nos Services
                 </a>
                 <a href="https://wa.me/212614884963" target="_blank" class="px-8 py-4 bg-[#d4af37] text-black font-semibold tracking-wider hover:bg-[#b8952e] transition-all duration-300 uppercase text-xs gold-glow flex items-center justify-center gap-2">
-                    <i class="fab fa-whatsapp text-lg"></i> <span data-key="btn-contact">Contact Privé</span>
+                    <i class="fab fa-whatsapp text-lg"></i> <span data-key="btn-contact">Discuter sur WhatsApp</span>
                 </a>
             </div>
         </div>
     </header>
 
-    <!-- Intro Section -->
-    <section class="py-24 px-6 max-w-6xl mx-auto">
+    <!-- Services Section -->
+    <section id="services" class="py-24 px-6 max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-luxury font-bold text-[#d4af37] mb-4" data-key="prob-title">Double Impact : Image & Publicité</h2>
+            <div class="h-[1px] w-24 bg-[#d4af37] mx-auto"></div>
+        </div>
+        
         <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
             <div>
-                <h2 class="text-3xl font-luxury font-bold mb-6 text-[#d4af37]" data-key="prob-title">L'Ébénisterie d'Art</h2>
                 <p class="text-gray-400 mb-6 leading-relaxed font-light text-justify" data-key="prob-desc1">
-                    Votre demeure mérite une signature unique. Loin des standards industriels, nous concevons des pièces exclusives qui reflètent votre succès.
+                    Pour vendre du mobilier de luxe, une simple photo ne suffit pas. Nous réalisons des shootings photo professionnels qui mettent en valeur chaque détail de vos créations.
                 </p>
                 <p class="text-gray-400 mb-8 leading-relaxed font-light text-justify" data-key="prob-desc2">
-                    Chaque création intègre des bois nobles et des finitions méticuleuses faites à la main pour traverser les générations.
+                    Ensuite, nous convertissons ces visuels en campagnes publicitaires ultra-ciblées (Facebook, Instagram, Google Ads) pour amener des clients acheteurs directement vers vous.
                 </p>
             </div>
             <div class="relative group overflow-hidden rounded-lg shadow-2xl border border-[#d4af37]/20">
@@ -92,40 +97,34 @@
         </div>
     </section>
 
-    <!-- Gallery Section -->
-    <section id="gallery" class="py-20 bg-black/20 border-t border-b border-[#d4af37]/10">
+    <!-- Gallery / Offers Section -->
+    <section class="py-20 bg-black/20 border-t border-b border-[#d4af37]/10">
         <div class="max-w-6xl mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="text-3xl font-luxury font-bold text-white mb-4" data-key="gallery-title">Nos Créations Realisées</h2>
+                <h2 class="text-3xl font-luxury font-bold text-white mb-4" data-key="gallery-title">Notre Expertise Focus Mobilier</h2>
                 <div class="h-[1px] w-24 bg-[#d4af37] mx-auto"></div>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="bg-[#151515] rounded-lg overflow-hidden border border-white/5 shadow-xl group card-bg">
-                    <div class="overflow-hidden h-64">
-                        <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?q=80&w=600" alt="Salon Prestige" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-lg font-luxury text-[#d4af37] font-semibold mb-2" data-key="item1-title">Le Salon Royal</h3>
-                        <p class="text-gray-400 text-sm font-light" data-key="item1-desc">Velours premium, structure en chêne massif et détails dorés à la main.</p>
+                    <div class="p-8 text-center">
+                        <div class="text-[#d4af37] text-4xl mb-4"><i class="fas fa-camera"></i></div>
+                        <h3 class="text-lg font-luxury text-[#d4af37] font-semibold mb-2" data-key="item1-title">Shooting Photo Pro</h3>
+                        <p class="text-gray-400 text-sm font-light" data-key="item1-desc">Valorisation de vos salons, chambres et tables avec un éclairage et des angles haut de gamme.</p>
                     </div>
                 </div>
                 <div class="bg-[#151515] rounded-lg overflow-hidden border border-white/5 shadow-xl group card-bg">
-                    <div class="overflow-hidden h-64">
-                        <img src="https://images.unsplash.com/photo-1617806118233-18e1db207f62?q=80&w=600" alt="Chambre Impériale" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-lg font-luxury text-[#d4af37] font-semibold mb-2" data-key="item2-title">Suite Impériale</h3>
-                        <p class="text-gray-400 text-sm font-light" data-key="item2-desc">Tête de lit capitonnée sur mesure et éclairage d'ambiance intégré.</p>
+                    <div class="p-8 text-center">
+                        <div class="text-[#d4af37] text-4xl mb-4"><i class="fas fa-ad"></i></div>
+                        <h3 class="text-lg font-luxury text-[#d4af37] font-semibold mb-2" data-key="item2-title">Campagnes Ads</h3>
+                        <p class="text-gray-400 text-sm font-light" data-key="item2-desc">Ciblage précis des clients à fort pouvoir d'achat intéressés par le mobilier de luxe.</p>
                     </div>
                 </div>
                 <div class="bg-[#151515] rounded-lg overflow-hidden border border-white/5 shadow-xl group card-bg">
-                    <div class="overflow-hidden h-64">
-                        <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?q=80&w=600" alt="Salle à Manger" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-lg font-luxury text-[#d4af37] font-semibold mb-2" data-key="item3-title">Salle à Manger</h3>
-                        <p class="text-gray-400 text-sm font-light" data-key="item3-desc">Table en marbre de Carrare avec piétement géométrique unique.</p>
+                    <div class="p-8 text-center">
+                        <div class="text-[#d4af37] text-4xl mb-4"><i class="fas fa-chart-line"></i></div>
+                        <h3 class="text-lg font-luxury text-[#d4af37] font-semibold mb-2" data-key="item3-title">Augmentation des Ventes</h3>
+                        <p class="text-gray-400 text-sm font-light" data-key="item3-desc">Génération de messages WhatsApp et d'appels de clients prêts à commander.</p>
                     </div>
                 </div>
             </div>
@@ -135,106 +134,104 @@
     <!-- CTA Section -->
     <section class="py-24 text-center px-6 bg-cover bg-center relative" style="background-image: linear-gradient(to top, rgba(15,15,15,1), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1920');">
         <div class="max-w-2xl mx-auto relative z-10">
-            <h2 class="text-3xl md:text-4xl font-luxury font-bold mb-6 text-white" data-key="cta-title">Votre Projet Sur Mesure</h2>
+            <h2 class="text-3xl md:text-4xl font-luxury font-bold mb-6 text-white" data-key="cta-title">Propulsez Votre Chiffre d'Affaires</h2>
             <p class="text-gray-300 mb-8 font-light" data-key="cta-desc">
-                Contactez notre conseiller privé sur WhatsApp pour une étude personnalisée de votre espace.
+                Discutez directement avec nous pour planifier votre prochain shooting et lancer vos publicités.
             </p>
             <a href="https://wa.me/212614884963" target="_blank" class="inline-flex items-center gap-3 px-10 py-5 bg-[#d4af37] text-black font-bold tracking-widest hover:bg-[#b8952e] transition rounded-none shadow-xl gold-glow uppercase text-sm">
-                <i class="fab fa-whatsapp text-xl"></i> <span data-key="cta-btn">Lancer l'Étude Privée</span>
+                <i class="fab fa-whatsapp text-xl"></i> <span data-key="cta-btn">Lancer Votre Stratégie</span>
             </a>
         </div>
     </section>
 
     <footer class="py-8 bg-[#0a0a0a] border-t border-white/5 text-center text-xs text-gray-500">
-        <p>&copy; 2026 Haute Ébénisterie Maroc. All Rights Reserved.</p>
+        <p>&copy; 2026 Media Buying & Photography. All Rights Reserved.</p>
     </footer>
 
     <script>
-        // النصوص مختصرة جداً ومباشرة
         const translations = {
             fr: {
-                "hero-sub": "Collection Privée 2026",
-                "hero-title": "Mobilier d'Exception Pour Espaces Prestigieux",
-                "hero-desc": "Le sur-mesure d’exception pour ceux qui refusent le compromis.",
-                "btn-discover": "Découvrir l'Excellence",
-                "btn-contact": "Contact Privé",
-                "prob-title": "L'Ébénisterie d'Art",
-                "prob-desc1": "Votre demeure mérite une signature unique. Loin des standards industriels, nous concevons des pièces exclusives qui reflètent votre succès.",
-                "prob-desc2": "Chaque création intègre des bois nobles et des finitions méticuleuses faites à la main pour traverser les générations.",
-                "gallery-title": "Nos Créations Realisées",
-                "item1-title": "Le Salon Royal",
-                "item1-desc": "Velours premium, structure en chêne massif et détails dorés à la main.",
-                "item2-title": "Suite Impériale",
-                "item2-desc": "Tête de lit capitonnée sur mesure et éclairage d'ambiance intégré.",
-                "item3-title": "Salle à Manger",
-                "item3-desc": "Table en marbre de Carrare avec piétement géométrique unique.",
-                "cta-title": "Votre Projet Sur Mesure",
-                "cta-desc": "Contactez notre conseiller privé sur WhatsApp pour une étude personnalisée de votre espace.",
-                "cta-btn": "Lancer l'Étude Privée"
+                "hero-sub": "Media Buying & Photography",
+                "hero-title": "Plus de Clients Pour Votre Marque de Meubles",
+                "hero-desc": "Nuos créons des visuels haut de gamme et propulsons vos publicités pour attirer des acheteurs qualifiés.",
+                "btn-discover": "Nos Services",
+                "btn-contact": "Discuter sur WhatsApp",
+                "prob-title": "Double Impact : Image & Publicité",
+                "prob-desc1": "Pour vendre du mobilier de luxe, une simple photo ne suffit pas. Nous réalisons des shootings photo professionnels qui mettent en valeur chaque détail de vos créations.",
+                "prob-desc2": "Ensuite, nous convertissons ces visuels en campagnes publicitaires ultra-ciblées (Facebook, Instagram, Google Ads) pour amener des clients acheteurs directement vers vous.",
+                "gallery-title": "Notre Expertise Focus Mobilier",
+                "item1-title": "Shooting Photo Pro",
+                "item1-desc": "Valorisation de vos salons, chambres et tables avec un éclairage et des angles haut de gamme.",
+                "item2-title": "Campagnes Ads",
+                "item2-desc": "Ciblage précis des clients à fort pouvoir d'achat intéressés par le mobilier de luxe.",
+                "item3-title": "Augmentation des Ventes",
+                "item3-desc": "Génération de messages WhatsApp et d'appels de clients prêts à commander.",
+                "cta-title": "Propulsez Votre Chiffre d'Affaires",
+                "cta-desc": "Discutez directement avec nous pour planifier votre prochain shooting et lancer vos publicités.",
+                "cta-btn": "Lancer Votre Stratégie"
             },
             ar: {
-                "hero-sub": "تشكيلة خاصة 2026",
-                "hero-title": "أثاث استثنائي للمساحات الفاخرة",
-                "hero-desc": "تصاميم حصرية مخصصة لمن لا يقبل إلا بالأفضل.",
-                "btn-discover": "اكتشف التميز",
-                "btn-contact": "اتصال خاص",
-                "prob-title": "فخامة النجارة الفنية",
-                "prob-desc1": "منزلك يستحق بصمة فريدة. بعيداً عن المنتجات التجارية، نصنع قطعاً حصرية تعكس نجاحك وأسلوب حياتك.",
-                "prob-desc2": "نعتمد على أنبل أنواع الخشب واللمسات اليدوية المتقنة لتدوم قطعك عبر الأجيال.",
-                "gallery-title": "إبداعات تم تحقيقها",
-                "item1-title": "الصالون الملكي",
-                "item1-desc": "مخمل فاخر، هيكل من خشب البلوط الصلب وتفاصيل ذهبية يدوية.",
-                "item2-title": "الجناح الإمبراطوري",
-                "item2-desc": "ظهر سرير مبطن حسب المقاس مع إضاءة مدمجة ساحرة.",
-                "item3-title": "غرفة الطعام",
-                "item3-desc": "طاولة من رخام الكارارا الأصيل بأرجل هندسية فريدة.",
-                "cta-title": "مشروعك حسب المقاس",
-                "cta-desc": "تواصل مباشرة عبر الواتساب مع مستشارنا للحصول على دراسة مخصصة لمساحتك.",
-                "cta-btn": "ابدأ الدراسة الخاصة"
+                "hero-sub": "إعلانات مدفوعة وتصوير احترافي",
+                "hero-title": "المزيد من الزبائن لشركة الأثاث ديالك",
+                "hero-desc": "كنصوروا الأثاث ديالك بطريقة احترافية وكنطلقوا إعلانات مستهدفة لجلب مشترين مهتمين.",
+                "btn-discover": "خدماتنا",
+                "btn-contact": "تحدث معنا عبر واتساب",
+                "prob-title": "تأثير مضاعف: جودة الصورة وقوة الإعلان",
+                "prob-desc1": "باش تبيع الأثاث الفاخر، الصور العادية ما كافياش. كندروا جلسات تصوير احترافية تبرز جمالية وفخامة كل قطعة.",
+                "prob-desc2": "من بعد، كنستعملوا هاد الصور فإعلانات ممولة ومستهدفة بدقة (فايسبوك، إنستغرام) باش نجيبوا ليك زبائن مستعدين للشراء مباشرة.",
+                "gallery-title": "خبرتنا في مجال الأثاث",
+                "item1-title": "تصوير احترافي",
+                "item1-desc": "إبراز فخامة الصالونات، غرف النوم والطاولات بإضاءة وزوايا سينمائية.",
+                "item2-title": "إعلانات ممولة",
+                "item2-desc": "استهداف دقيق للزبائن لي عندهم قدرة شرائية عالية ومهتمين بالأثاث الراقي.",
+                "item3-title": "زيادة المبيعات",
+                "item3-desc": "جلب رسائل واتساب واتصالات من زبائن مهتمين باغيين يطلبوا السلعة.",
+                "cta-title": "ضاعف أرباحك الآن",
+                "cta-desc": "تواصل معانا مباشرة باش نحددوا موعد التصوير ونبدأوا حملات الإعلانات ديالك.",
+                "cta-btn": "ابدأ إستراتيجيتك الآن"
             },
             en: {
-                "hero-sub": "Private Collection 2026",
-                "hero-title": "Exceptional Furniture for Prestigious Spaces",
-                "hero-desc": "Premium custom-crafted furniture for those who refuse to compromise.",
-                "btn-discover": "Discover Excellence",
-                "btn-contact": "Private Contact",
-                "prob-title": "Artistic Cabinetry",
-                "prob-desc1": "Your home deserves a unique signature. Far from industrial standards, we create exclusive pieces that reflect your success.",
-                "prob-desc2": "Each creation features noble woods and meticulous hand-made finishes built to last generations.",
-                "gallery-title": "Our Realized Creations",
-                "item1-title": "The Royal Lounge",
-                "item1-desc": "Premium velvet, solid oak structure, and hand-gilded gold details.",
-                "item2-title": "Imperial Suite",
-                "item2-desc": "Custom tufted headboard and integrated ambient mood lighting.",
-                "item3-title": "Dining Room",
-                "item3-desc": "Carrara marble table with a unique architectural geometric base.",
-                "cta-title": "Your Custom Project",
-                "cta-desc": "Chat directly on WhatsApp with our private advisor for a personalized study of your space.",
-                "cta-btn": "Start Private Consultation"
+                "hero-sub": "Media Buying & Photography",
+                "hero-title": "Get More Customers for Your Furniture Brand",
+                "hero-desc": "We capture high-end visuals and run targeted ads to attract qualified buyers.",
+                "btn-discover": "Our Services",
+                "btn-contact": "Chat on WhatsApp",
+                "prob-title": "Double Impact: Visuals & Advertising",
+                "prob-desc1": "To sell luxury furniture, phone photos aren't enough. We do professional photography sessions that showcase the premium quality of your creations.",
+                "prob-desc2": "Then, we transform these visuals into high-converting ad campaigns (Facebook, Instagram) to bring buying customers directly to you.",
+                "gallery-title": "Our Furniture-Focused Expertise",
+                "item1-title": "Pro Photography",
+                "item1-desc": "Showcasing your sofas, bedrooms, and tables with cinematic lighting and premium angles.",
+                "item2-title": "Targeted Ads",
+                "item2-desc": "Precise targeting of high-income clients interested in luxury interior design.",
+                "item3-title": "Sales Growth",
+                "item3-desc": "Generating direct WhatsApp messages and inquiries from buyers ready to order.",
+                "cta-title": "Boost Your Business Revenue",
+                "cta-desc": "Chat directly with us to schedule your next shoot and launch your profitable ads.",
+                "cta-btn": "Launch Your Strategy"
             },
             es: {
-                "hero-sub": "Colección Privada 2026",
-                "hero-title": "Mobiliario Excepcional para Espacios Prestigiosos",
-                "hero-desc": "Diseños exclusivos a medida para quienes no aceptan compromisos.",
-                "btn-discover": "Descubrir la Excelencia",
-                "btn-contact": "Contacto Privado",
-                "prob-title": "Ebanistería de Arte",
-                "prob-desc1": "Su hogar merece una firma única. Lejos de los estándares industriales, creamos piezas exclusivas que reflejan su éxito.",
-                "prob-desc2": "Cada creación incorpora maderas nobles y acabados meticulosos hechos a mano para durar generaciones.",
-                "gallery-title": "Nuestras Creaciones",
-                "item1-title": "El Salón Real",
-                "item1-desc": "Terciopelo premium, estructura de roble macizo y detalles dorados a mano.",
-                "item2-title": "Suite Imperial",
-                "item2-desc": "Cabecero tapizado a medida e iluminación de ambiente integrada.",
-                "item3-title": "Comedor",
-                "item3-desc": "Mesa de mármol de Carrara con una base geométrica única.",
-                "cta-title": "Su Proyecto a Medida",
-                "cta-desc": "Hable directamente por WhatsApp con nuestro asesor para un estudio personalizado.",
-                "cta-btn": "Iniciar Estudio Privado"
+                "hero-sub": "Media Buying & Publicidad",
+                "hero-title": "Más Clientes para su Marca de Muebles",
+                "hero-desc": "Creamos contenido visual premium y gestionamos anuncios para atraer compradores cualificados.",
+                "btn-discover": "Servicios",
+                "btn-contact": "Contactar por WhatsApp",
+                "prob-title": "Doble Impacto: Imagen y Publicidad",
+                "prob-desc1": "Para vender muebles de lujo, las fotos comunes no bastan. Realizamos sesiones de fotografía profesional que resaltan la calidad de sus diseños.",
+                "prob-desc2": "Luego, convertimos ese contenido en campañas de publicidad de alto rendimiento para dirigir clientes compradores hacia su negocio.",
+                "gallery-title": "Nuestra Especialidad en Muebles",
+                "item1-title": "Fotografía Pro",
+                "item1-desc": "Valoración de salones y dormitorios con iluminación y ángulos de gama alta.",
+                "item2-title": "Anuncios Ads",
+                "item2-desc": "Segmentación precisa de clientes con alto poder adquisitivo interesados en decoración de lujo.",
+                "item3-title": "Aumento de Ventas",
+                "item3-desc": "Generación de mensajes directos de WhatsApp de clientes listos para comprar.",
+                "cta-title": "Impulse sus Ventas Hoy",
+                "cta-desc": "Hable con nosotros para planificar su próxima sesión de fotos y lanzar sus anuncios.",
+                "cta-btn": "Iniciar Estrategia"
             }
         };
 
-        // لغة، مظهر، وصوتيات
         function toggleLangDropdown() {
             const dd = document.getElementById('langDropdown');
             dd.classList.toggle('hidden');
@@ -293,7 +290,7 @@
         let isPlaying = false;
         const music = document.getElementById('bgMusic');
         const musicIcon = document.getElementById('musicIcon');
-        music.volume = 0.25; 
+        music.volume = 0.15; 
 
         function toggleMusic() {
             if(!isPlaying) {
